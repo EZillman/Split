@@ -1,7 +1,7 @@
 <template>
     <HeaderNav></HeaderNav>
     <div>
-        <h1>Settings</h1>
+        <h1>Chores</h1>
     </div>
 </template>
 
@@ -9,6 +9,6 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
 
 </style>
