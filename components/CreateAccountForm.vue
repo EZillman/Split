@@ -44,9 +44,9 @@
 </template>
 
 <script setup>
-import { useAccountStore } from '~/store/account.js';
+import { useUserStore } from '~/store/user.js';
 
-const store = useAccountStore();
+const store = useUserStore();
 const supabase = useSupabaseClient();
 const email = ref('');
 const displayName = ref('');
@@ -60,11 +60,9 @@ async function signUp() {
             email: email.value,
             password: password.value,
         })
-        // save name in a different table
-        if (error) throw error;
-
-        store.setAccount(user);
+        store.setUser(user);
         successMsg.value = 'A confirmation will be sent to your email!';
+        if (error) throw error;
     } catch (error) {
         errorMsg.value = error.message;
     }
