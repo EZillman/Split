@@ -1,3 +1,5 @@
+import { defineStore } from 'pinia'
+
 export const useAccountStore = defineStore({
     id: 'account',
     state: () => ({
@@ -5,7 +7,7 @@ export const useAccountStore = defineStore({
         isLoggedIn: false,
     }),
     actions: {
-        setaccount(account) {
+        setAccount(account) {
             this.account = account;
             this.isLoggedIn = !!account;
         },

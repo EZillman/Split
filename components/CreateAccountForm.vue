@@ -13,14 +13,14 @@
             v-model="email"
             />
 
-            <label for="name">
+            <label for="displayName">
                 Household name
             </label>
             <input
             type="text"
-            id="name"
-            name="name"
-            v-model="name"
+            id="displayName"
+            name="displayName"
+            v-model="displayName"
             />
 
             <label for="password">
@@ -33,6 +33,9 @@
             v-model="password"
             />
 
+            <p v-if="successMsg">{{ successMsg }}</p>
+            <p v-if="errorMsg">{{ errorMsg }}</p>
+
             <button type="submit">
                 Create account
             </button>
@@ -41,19 +44,35 @@
 </template>
 
 <script setup>
-//const store = useAccountStore();
+import { useAccountStore } from '~/store/account.js';
+
+const store = useAccountStore();
+const supabase = useSupabaseClient();
 const email = ref('');
-const name = ref('');
+const displayName = ref('');
 const password = ref(null);
 const errorMsg = ref(null);
 const successMsg = ref(null);
 
 async function signUp() {
+    try {
+        const { user, error } = await supabase.auth.signUp({
+            email: email.value,
+            password: password.value,
+        })
+        // save name in a different table
+        if (error) throw error;
+
+        store.setAccount(user);
+        successMsg.value = 'A confirmation will be sent to your email!';
+    } catch (error) {
+        errorMsg.value = error.message;
+    }
 
 }
 
 async function submitForm() {
-    //await signUp();
+    await signUp();
 }
 </script>
 
