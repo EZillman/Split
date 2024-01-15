@@ -54,6 +54,13 @@ button {
     border-color: #54E3EC;
 }
 
+button:hover {
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+    border: none;
+    background-color: #3c5555;
+}
+
 p {
     margin-top: 2rem;
 }

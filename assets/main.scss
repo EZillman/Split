@@ -49,12 +49,20 @@ input {
 
 button {
     width: 95%;
-    height: 3.75rem;
+    height: 3.73rem;
     margin: 0.4rem;
     border: 0.1rem #324B4B solid;
     border-radius: 0.5rem;
     box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
     background-color: #68EBF3;
+    transition: 0.2s all ease-in-out;
+}
+
+button:hover {
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+    border: none;
+    background-color: #83eef4;
 }
 
 @media screen and (min-width: 760px) {
