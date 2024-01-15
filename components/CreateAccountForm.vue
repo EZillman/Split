@@ -13,16 +13,6 @@
             v-model="email"
             />
 
-            <label for="displayName">
-                Household name
-            </label>
-            <input
-            type="text"
-            id="displayName"
-            name="displayName"
-            v-model="displayName"
-            />
-
             <label for="password">
                 Password
             </label>
@@ -49,7 +39,6 @@ import { useUserStore } from '~/store/user.js';
 const store = useUserStore();
 const supabase = useSupabaseClient();
 const email = ref('');
-const displayName = ref('');
 const password = ref(null);
 const errorMsg = ref(null);
 const successMsg = ref(null);
@@ -59,7 +48,7 @@ async function signUp() {
         const { user, error } = await supabase.auth.signUp({
             email: email.value,
             password: password.value,
-        })
+        });
         store.setUser(user);
         successMsg.value = 'A confirmation will be sent to your email!';
         if (error) throw error;

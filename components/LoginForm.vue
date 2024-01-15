@@ -49,7 +49,7 @@ async function login() {
         const { user, error } = await supabase.auth.signInWithPassword({
             email: email.value,
             password: password.value,
-        })
+        });
         store.setUser(user);
         router.push('/home');
         if (error) throw error; 
