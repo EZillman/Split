@@ -1,0 +1,76 @@
+body {
+    background-image: url('/tile_background\ \(2\).png');
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+
+h2 {
+    display: flex;
+    justify-content: center;
+    color: #324B4B;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    color: #324B4B;
+}
+
+form {
+    margin: 0.2rem 0.5rem;
+}
+
+.button-container {
+    margin: 0 0.5rem;
+}
+
+.input-container {
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 95%;
+    height: 3.73rem;
+    margin: 0.4rem;
+    padding: 0.1rem 0.5rem;
+    border: 0.1rem #324B4B solid;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
+    color: #324B4B;
+    background-color: #DEF2EB;
+}
+
+button {
+    width: 95%;
+    height: 3.75rem;
+    margin: 0.4rem;
+    border: 0.1rem #324B4B solid;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
+    background-color: #68EBF3;
+}
+
+@media screen and (min-width: 760px) {
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    .inputs-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 1rem;
+
+        .input-container {
+            width: 48%;;
+        }
+    }
+}

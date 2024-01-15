@@ -3,25 +3,31 @@
         <h2>Create account</h2>
 
         <form @submit.prevent="submitForm">
-            <label for="email">
-                Email
-            </label>
-            <input 
-            type="email"
-            id="email"
-            name="email"
-            v-model="email"
-            />
+            <div class="inputs-container">
+                <div class="input-container">
+                    <label for="email">
+                        Email
+                    </label>
+                    <input 
+                    type="email"
+                    id="email"
+                    name="email"
+                    v-model="email"
+                    />                    
+                </div>
 
-            <label for="password">
-                Password
-            </label>
-            <input
-            type="password" 
-            id="password"
-            name="password" 
-            v-model="password"
-            />
+                <div class="input-container">
+                    <label for="password">
+                        Password
+                    </label>
+                    <input
+                    type="password" 
+                    id="password"
+                    name="password" 
+                    v-model="password"
+                    />                    
+                </div>
+            </div>
 
             <p v-if="successMsg">{{ successMsg }}</p>
             <p v-if="errorMsg">{{ errorMsg }}</p>
