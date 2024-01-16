@@ -83,6 +83,7 @@ nav {
     nav {
         height: 100%;
         width: 100%;
+        right: -80%;
 
         ul {
             flex-direction: column;
