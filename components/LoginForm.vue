@@ -4,7 +4,7 @@
 
         <form @submit.prevent="submitForm">
             <div class="inputs-container">
-               <div class="input-container">
+                <div class="input-container">
                     <label for="email">
                         Email
                     </label>
@@ -13,6 +13,7 @@
                     id="email"
                     name="email"
                     v-model="email"
+                    placeholder="example@gmail.com"
                     />                
                 </div>
 
@@ -28,7 +29,6 @@
                     />                
                 </div>               
             </div>
-
 
             <p v-if="errorMsg">{{ errorMsg }}</p>
 

@@ -9,6 +9,8 @@
             id="member_name"
             name="member_name"
             v-model="member_name"
+            placeholder="name"
+            required
             />
 
             <p v-if="successMsg">{{ successMsg }}</p>
@@ -30,6 +32,13 @@ const member_name = ref('');
 const errorMsg = ref(null);
 const successMsg = ref(null);
 
+function showSuccessMsg() {
+    successMsg.value = 'Member added!';
+    setTimeout(() => {
+        successMsg.value = null;
+    }, 3000);
+}
+
 async function addMember() {
     const newMember = {
         name: member_name.value,
@@ -42,8 +51,7 @@ async function addMember() {
         .insert([
             newMember
         ])
-
-        successMsg.value = 'Member added!';
+        showSuccessMsg();
         if (error) throw error;
     } catch (error) {
         errorMsg.value = error.message;

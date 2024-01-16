@@ -9,6 +9,8 @@
             id="chore_name"
             name="chore_name"
             v-model="chore_name"
+            placeholder="name"
+            required
             />
 
             <label for="time_estimated">
@@ -19,6 +21,8 @@
             id="time_estimated"
             name="time_estimated"
             v-model="time_estimated"
+            placeholder="30"
+            required
             />
 
             <label for="monthly_frequency">
@@ -29,6 +33,8 @@
             id="monthly_frequency"
             name="monthly_frequency"
             v-model="monthly_frequency"
+            placeholder="4"
+            required
             />
 
             <p v-if="successMsg">{{ successMsg }}</p>
@@ -53,6 +59,13 @@ const monthly_frequency = ref(null);
 const errorMsg = ref(null);
 const successMsg = ref(null);
 
+function showSuccessMsg() {
+    successMsg.value = 'Chore added!';
+    setTimeout(() => {
+        successMsg.value = null;
+    }, 3000);
+}
+
 async function addChore() {
     const newChore = {
         name: chore_name.value,
@@ -67,8 +80,7 @@ async function addChore() {
         .insert([
             newChore
         ])
-
-        successMsg.value = 'Chore added!';
+        showSuccessMsg();
         if (error) throw error;
     } catch (error) {
         errorMsg.value = error.message;

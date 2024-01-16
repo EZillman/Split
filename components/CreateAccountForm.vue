@@ -13,6 +13,7 @@
                     id="email"
                     name="email"
                     v-model="email"
+                    placeholder="example@gmail.com"
                     />                    
                 </div>
 
