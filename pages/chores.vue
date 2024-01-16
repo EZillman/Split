@@ -2,6 +2,7 @@
     <HeaderNav></HeaderNav>
     <div>
         <h1>Chores</h1>
+        <CreateChoresForm></CreateChoresForm>
     </div>
 </template>
 

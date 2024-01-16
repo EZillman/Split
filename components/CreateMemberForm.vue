@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <form @submit.prevent="submitForm">
             <label for="member_name">
                 Member name
