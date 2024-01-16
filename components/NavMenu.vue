@@ -3,6 +3,7 @@
 <template>
     <nav>
         <ul>
+            <img src="/desktop-icon.png" class="desktop-icon" height="86" width="226">
             <NuxtLink to="/home" exact-active-class="active-link">
                 <li>
                     <img src="/home.png" height="49" width="49"> 
@@ -57,9 +58,10 @@ nav {
             padding: 1rem 0.3rem;
             width: 25%;
             text-align: center;
+            text-decoration: none;            
 
             li {
-                text-decoration: none;
+
                 list-style-type: none;
                 color: #D4F5F4;
             }    
@@ -68,17 +70,81 @@ nav {
                 background-color: #324B4B;
             }
         }
-
      
     }
 
 }
 
+.desktop-icon {
+    display: none;
+}
+
 @media screen and (min-width: 760px) {
+    nav {
+        height: 100%;
+        width: 100%;
+
+        ul {
+            flex-direction: column;
+                    
+            a {
+                width: 100%;
+                text-align: left;
+                padding-left: 10%;
+                margin-top: 3rem;
+                background-color: #324B4B;
+
+                li {
+                    font-size: 48px;
+                    color: #54E3EC;
+                }
+
+                &.active-link {
+                    text-decoration: underline #54E3EC;
+                }
+            }
+
+        }
+
+
+    }
 
 }
 
 @media screen and (min-width: 1024px) {
+
+    nav {
+        height: 20%;
+        top: 0;
+        background-color: #324b4b00;
+
+        ul {
+            flex-direction: row;
+
+            a {
+                margin-top: 0;
+                background-color: #324b4b00;
+
+                li {
+                    color: #324B4B;
+                    font-size: 48px;
+
+                    img {
+                        display: none;
+                    }
+                }
+
+                &.active-link {
+                    background-color: #324b4b00;
+                    text-decoration: underline #324B4B;
+                }
+            }
+        }
+    }
+
+    .desktop-icon {
+        display: block;
+    }
 
 }
 </style>
