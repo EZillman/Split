@@ -3,6 +3,8 @@
     <div>
         <h1>Chores</h1>
         <CreateChoresForm></CreateChoresForm>
+        <ChoresList></ChoresList>
+        
     </div>
 </template>
 

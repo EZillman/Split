@@ -3,9 +3,9 @@
     <div>
         <h1>Members</h1>
 
-        <div>
-            <CreateMemberForm></CreateMemberForm>
-        </div>
+        <CreateMemberForm></CreateMemberForm>
+        <MembersList></MembersList>
+
     </div>
 </template>
 
