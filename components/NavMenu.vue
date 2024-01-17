@@ -1,7 +1,7 @@
 
 
 <template>
-    <nav>
+    <nav :class="{ 'tablet-nav-open': isMenuOpen }">
         <ul>
             <img src="/desktop-icon.png" class="desktop-icon" height="86" width="226">
             <NuxtLink to="/home" exact-active-class="active-link">
@@ -31,9 +31,25 @@
         </ul>
 
     </nav>
+    <div>
+        <button 
+        aria-label="toggle menu"
+        @click="toggleMenu"
+        >
+            <img v-if="isMenuOpen" class="close-btn" src="/interface.png" height="130" width="130">
+            <img v-else src="/list.png" class="open-btn" height="111" width="95">
+
+        </button>        
+    </div>
+
 </template>
 
 <script setup>
+const isMenuOpen = ref(false);
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
 
 </script>
 
@@ -75,6 +91,10 @@ nav {
 
 }
 
+div button {
+    display: none;
+}
+
 .desktop-icon {
     display: none;
 }
@@ -83,7 +103,8 @@ nav {
     nav {
         height: 100%;
         width: 100%;
-        right: -80%;
+        right: -100%;
+        transition: all 0.3s ease-in-out;
 
         ul {
             flex-direction: column;
@@ -107,9 +128,29 @@ nav {
 
         }
 
-
     }
 
+    .tablet-nav-open {
+        transition: all 0.3s ease-in-out;
+        right: 0;
+    }
+
+    div button {
+        right: 1rem;
+        display: block;
+        height: 7rem;
+        width: 7rem;
+        position: absolute;
+        background-color: #324B4B;
+    }
+
+    .open-btn {
+        margin-left: -0.3rem;
+    }
+
+    .close-btn {
+        margin: -0.7rem 0 0 -0.9rem ;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -117,6 +158,7 @@ nav {
     nav {
         height: 20%;
         top: 0;
+        right: 0;
         background-color: #324b4b00;
 
         ul {
@@ -141,6 +183,10 @@ nav {
                 }
             }
         }
+    }
+
+    div button {
+        display: none;
     }
 
     .desktop-icon {
