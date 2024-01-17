@@ -67,7 +67,6 @@ async function login() {
 
 async function submitForm() {
     await login();
-    console.log('logged in');
 }
 
 </script>

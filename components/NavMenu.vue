@@ -163,7 +163,7 @@ div button {
 @media screen and (min-width: 1024px) {
 
     nav {
-        height: 20%;
+        height: 15%;
         top: 0;
         right: 0;
         background-color: #324b4b00;
