@@ -34,10 +34,11 @@
     <div>
         <button 
         aria-label="toggle menu"
+        :class="{ 'close-btn': isMenuOpen }"
         @click="toggleMenu"
         >
-            <img v-if="isMenuOpen" class="close-btn" src="/interface.png" height="130" width="130">
-            <img v-else src="/list.png" class="open-btn" height="111" width="95">
+            <img v-if="isMenuOpen" class="close-btn-img" src="/interface.png" height="130" width="130">
+            <img v-else src="/list.png" class="open-btn-img" height="111" width="95">
 
         </button>        
     </div>
@@ -144,12 +145,17 @@ div button {
         background-color: #324B4B;
     }
 
-    .open-btn {
+    .open-btn-img {
         margin-left: -0.3rem;
     }
 
+    .close-btn-img {
+        margin: -0.8rem 0 0 -1.15rem ;
+    }
+
     .close-btn {
-        margin: -0.7rem 0 0 -0.9rem ;
+        box-shadow: none;
+        border: 0.2rem #54E3EC solid;
     }
 }
 
