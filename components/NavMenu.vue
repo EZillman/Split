@@ -78,7 +78,8 @@ nav {
             text-decoration: none;            
 
             li {
-
+                max-height: 5rem;
+                max-width: 5rem;
                 list-style-type: none;
                 color: #D4F5F4;
             }    
@@ -177,10 +178,16 @@ div button {
                 li {
                     color: #324B4B;
                     font-size: 48px;
+                    transition: all 0.3s ease-in-out;
 
                     img {
                         display: none;
                     }
+                }
+
+                li:hover {
+                    font-size: 50px;
+                    transition: all 0.3s ease-in-out;
                 }
 
                 &.active-link {
