@@ -41,10 +41,10 @@ label {
 }
 
 input {
-    width: 95%;
-    height: 3.73rem;
-    margin: 0.4rem;
-    padding: 0.1rem 0.5rem;
+    width: 91%;
+    height: 3.6rem;
+    margin: 1% 1%;
+    padding: 0 2%;
     border: 0.1rem #324B4B solid;
     border-radius: 0.5rem;
     box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
@@ -55,8 +55,8 @@ input {
 button {
     width: 95%;
     height: 3.73rem;
-    margin: 0.4rem;
-    padding: 0.1rem 0.5rem;
+    margin: 1% 1%;
+    padding: 0 2%;
     border: 0.1rem #324B4B solid;
     border-radius: 0.5rem;
     box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
@@ -81,7 +81,7 @@ button:hover {
         display: flex;
         flex-direction: row;
         width: 100%;
-        gap: 1rem;
+        gap: 0.8rem;
 
         .input-container {
             width: 48%;;
