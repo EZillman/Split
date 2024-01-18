@@ -68,5 +68,13 @@ async function submitForm() {
 </script>
 
 <style lang="scss" scoped>
+form {
+    margin: 1.5rem;
+}
 
+@media screen and (min-width: 760px) {
+    form {
+        margin: 1.5rem 12rem;
+    }
+}
 </style>

@@ -13,29 +13,39 @@
             required
             />
 
-            <label for="time_estimated">
-                Time estimated in minutes
-            </label>
-            <input 
-            type="number"
-            id="time_estimated"
-            name="time_estimated"
-            v-model="time_estimated"
-            placeholder="30"
-            required
-            />
+            <div>
+                <div>
+                    <label for="time_estimated">
+                        Time estimated in minutes
+                    </label>
+                    <input 
+                    type="number"
+                    id="time_estimated"
+                    class="small-input"
+                    name="time_estimated"
+                    v-model="time_estimated"
+                    placeholder="30"
+                    required
+                    />                    
+                </div>
 
-            <label for="monthly_frequency">
-                Monthly frequency
-            </label>
-            <input 
-            type="number"
-            id="monthly_frequency"
-            name="monthly_frequency"
-            v-model="monthly_frequency"
-            placeholder="4"
-            required
-            />
+                <div>
+                    <label for="monthly_frequency">
+                        Monthly frequency
+                    </label>
+                    <input 
+                    type="number"
+                    id="monthly_frequency"
+                    class="small-input"
+                    name="monthly_frequency"
+                    v-model="monthly_frequency"
+                    placeholder="4"
+                    required
+                    />                      
+                </div>
+              
+            </div>
+
 
             <p v-if="successMsg">{{ successMsg }}</p>
             <p v-if="errorMsg">{{ errorMsg }}</p>
@@ -97,5 +107,29 @@ async function submitForm() {
 </script>
 
 <style lang="scss" scoped>
+form {
+    margin: 1.5rem;
+}
 
+@media screen and (min-width: 760px) {
+    form {
+        margin: 1.5rem 11rem;
+
+        div {
+            display: flex;
+            flex-direction: row;
+            gap: 0.2rem;
+            width: 96%;
+
+            div {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+    .small-input {
+        width: 95%;
+    }
+}
 </style>
