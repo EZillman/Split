@@ -108,12 +108,12 @@ async function submitForm() {
 
 <style lang="scss" scoped>
 form {
-    margin: 1.5rem;
+    margin: 2%;
 }
 
 @media screen and (min-width: 760px) {
     form {
-        margin: 1.5rem 11rem;
+        margin: 2% 20%;
 
         div {
             display: flex;
@@ -132,4 +132,12 @@ form {
         width: 95%;
     }
 }
+
+@media screen and (min-width: 1024px) {
+    form {
+        margin: 2% 28%;
+    }
+
+}
+
 </style>

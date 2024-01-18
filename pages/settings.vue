@@ -1,7 +1,7 @@
 <template>
     <HeaderNav></HeaderNav>
     <main>
-        <h1>Settings</h1>
+        <h2>Settings</h2>
 
         <LogoutBtn></LogoutBtn>
     </main>

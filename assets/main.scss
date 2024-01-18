@@ -14,17 +14,26 @@ main {
     margin-bottom: 7rem;
 }
 
-h2 {
+h1 {
+    font-size: 3rem;
     display: flex;
     justify-content: center;
-    color: #324B4B;
+}
+
+h2 {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    font-size: 1.5rem;
 }
 
 p {
     display: flex;
     justify-content: center;
     font-size: 1.25rem;
-    color: #324B4B;
 }
 
 form {
@@ -44,7 +53,6 @@ form {
 label {
     margin-left: 1%;
     font-size: 1.25rem;
-    color: #324B4B;
 }
 
 input {
@@ -56,7 +64,6 @@ input {
     border: 0.1rem #324B4B solid;
     border-radius: 0.5rem;
     box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
-    color: #324B4B;
     background-color: #DEF2EB;
 }
 
@@ -81,10 +88,32 @@ button:hover {
 }
 
 @media screen and (min-width: 760px) {
-
+    h1 {
+        font-size: 4rem;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+    }
+    
+    h3 {
+        font-size: 2rem;
+    }
 }
 
 @media screen and (min-width: 1024px) {
+
+    h1 {
+        font-size: 6rem;
+    }
+    
+    h2 {
+        font-size: 3rem;
+    }
+
+    main {
+        margin-top: 8rem;
+    }
 
     .inputs-container {
         display: flex;

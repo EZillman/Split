@@ -178,7 +178,6 @@ div button {
 
                 li {
                     color: #324B4B;
-                    font-size: 48px;
                     transition: all 0.3s ease-in-out;
 
                     img {
@@ -187,7 +186,7 @@ div button {
                 }
 
                 li:hover {
-                    font-size: 50px;
+                    font-size: 3.12rem;
                     transition: all 0.3s ease-in-out;
                 }
 

@@ -2,7 +2,7 @@
     <div>
         <ul>
             <li v-for="member in members" :key="member.id">
-                <p>{{ member.name }}</p>
+                <h3>{{ member.name }}</h3>
                 <button>Select</button>
             </li>
         </ul>

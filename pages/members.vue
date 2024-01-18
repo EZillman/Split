@@ -1,7 +1,7 @@
 <template>
     <HeaderNav></HeaderNav>
     <main>
-        <h1>Members</h1>
+        <h2>Members</h2>
 
         <CreateMemberForm></CreateMemberForm>
         <MembersList></MembersList>

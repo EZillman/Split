@@ -1,7 +1,7 @@
 <template>
     <HeaderNav></HeaderNav>
     <main>
-        <h1>Chores</h1>
+        <h2>Chores</h2>
         <CreateChoresForm></CreateChoresForm>
         <ChoresList></ChoresList>
         
