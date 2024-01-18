@@ -3,18 +3,22 @@
     <main>
         <h2>Members</h2>
 
-        <div class="add-btn-container">
-            <h3>Add members</h3>
-            <button @click="toggleAddMembers">
-                <img :class="{ rotated: isAddMembersOpen }" src="/down.png" height="30" width="30">
-            </button>            
+        <div class="members-and-chores-container">
+            <div class="desktop-add-container">
+                <div class="add-btn-container">
+                    <h3>Add members</h3>
+                    <button @click="toggleAddMembers">
+                        <img :class="{ rotated: isAddMembersOpen }" src="/down.png" height="30" width="30">
+                    </button>            
+                </div>
+
+                <Transition name="fade">
+                    <CreateMemberForm v-if="isAddMembersOpen"></CreateMemberForm>            
+                </Transition>            
+            </div>
+
+            <MembersList></MembersList>            
         </div>
-
-        <Transition name="fade">
-            <CreateMemberForm v-if="isAddMembersOpen"></CreateMemberForm>            
-        </Transition>
-
-        <MembersList></MembersList>
 
     </main>
 </template>

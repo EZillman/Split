@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="members-and-chores">
         <ul>
             <li v-for="member in members" :key="member.id">
                 <h3>{{ member.name }}</h3>
@@ -82,7 +82,7 @@ button {
   }
 
   li {
-    width: 30%;
+    width: 100%;
   }
 }
 

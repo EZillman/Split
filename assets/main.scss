@@ -154,4 +154,22 @@ button:hover {
             width: 48%;;
         }
     }
+
+    .desktop-add-container {
+        margin: 2%;
+        width: 48%;
+        padding: 2rem;
+        border: 0.1rem #54E3EC solid;
+        border-radius: 0.5rem;
+        background-color: #aececd86;
+    }
+
+    .members-and-chores-container {
+        display: flex;
+    }
+
+    .members-and-chores {
+        margin: 2%;
+        width: 48%;
+    }
 }

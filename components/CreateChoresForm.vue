@@ -113,7 +113,11 @@ form {
 
 @media screen and (min-width: 760px) {
     form {
-        margin: 2% 20%;
+        margin: 2% 15%;
+        padding: 2rem;
+        border: 0.1rem #54E3EC solid;
+        border-radius: 0.5rem;
+        background-color: #aececd86;
 
         div {
             display: flex;
@@ -135,7 +139,10 @@ form {
 
 @media screen and (min-width: 1024px) {
     form {
-        margin: 2% 28%;
+        margin: 0;
+        padding: 0.1rem;
+        border: none;
+        background-color: #54e2ec00;
     }
 
 }

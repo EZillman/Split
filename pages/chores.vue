@@ -3,18 +3,22 @@
     <main>
         <h2>Chores</h2>
 
-        <div class="add-btn-container">
-            <h3>Add chores</h3>
-            <button @click="toggleAddChores">
-                <img :class="{ rotated: isAddChoresOpen }" src="/down.png" height="30" width="30">
-            </button>            
+        <div class="members-and-chores-container">
+            <div class="desktop-add-container">
+                <div class="add-btn-container">
+                    <h3>Add chores</h3>
+                    <button @click="toggleAddChores">
+                        <img :class="{ rotated: isAddChoresOpen }" src="/down.png" height="30" width="30">
+                    </button>            
+                </div>
+
+                <Transition name="fade">
+                    <CreateChoresForm v-if="isAddChoresOpen"></CreateChoresForm>            
+                </Transition>            
+            </div>
+
+            <ChoresList></ChoresList>            
         </div>
-
-        <Transition name="fade">
-            <CreateChoresForm v-if="isAddChoresOpen"></CreateChoresForm>            
-        </Transition>
-
-        <ChoresList></ChoresList>
         
     </main>
 </template>

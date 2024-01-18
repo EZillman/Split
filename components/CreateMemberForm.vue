@@ -74,7 +74,21 @@ form {
 
 @media screen and (min-width: 760px) {
     form {
-        margin: 1.5rem 12rem;
+        margin: 2% 18%;
+        padding: 2rem;
+        border: 0.1rem #54E3EC solid;
+        border-radius: 0.5rem;
+        background-color: #aececd86;
     }
+}
+
+@media screen and (min-width: 1024px) {
+    form {
+        margin: 0;
+        padding: 0.1rem;
+        border: none;
+        background-color: #54e2ec00;
+    }
+
 }
 </style>

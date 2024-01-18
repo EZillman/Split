@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="members-and-chores">
         <ul>
             <li v-for="chore in chores" :key="chore.id">
                 <div>
@@ -95,7 +95,7 @@ button {
   }
 
   li {
-    width: 40%;
+    width: 100%;
   }
 }
 </style>
