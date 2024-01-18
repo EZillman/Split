@@ -6,12 +6,14 @@
         <div class="add-btn-container">
             <h3>Add chores</h3>
             <button @click="toggleAddChores">
-                <img v-if="isAddChoresOpen" src="/up.png" height="30" width="30">
-                <img v-else src="/down.png" height="30" width="30">
+                <img :class="{ rotated: isAddChoresOpen }" src="/down.png" height="30" width="30">
             </button>            
         </div>
 
-        <CreateChoresForm v-if="isAddChoresOpen"></CreateChoresForm>
+        <Transition name="fade">
+            <CreateChoresForm v-if="isAddChoresOpen"></CreateChoresForm>            
+        </Transition>
+
         <ChoresList></ChoresList>
         
     </main>
@@ -27,5 +29,7 @@ const toggleAddChores = () => {
 </script>
 
 <style lang="scss" scoped>
-
+img {
+    transition: all ease-in-out 0.3s;
+}
 </style>

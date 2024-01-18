@@ -6,12 +6,14 @@
         <div class="add-btn-container">
             <h3>Add members</h3>
             <button @click="toggleAddMembers">
-                <img v-if="isAddMembersOpen" src="/up.png" height="30" width="30">
-                <img v-else src="/down.png" height="30" width="30">
+                <img :class="{ rotated: isAddMembersOpen }" src="/down.png" height="30" width="30">
             </button>            
         </div>
 
-        <CreateMemberForm v-if="isAddMembersOpen"></CreateMemberForm>
+        <Transition name="fade">
+            <CreateMemberForm v-if="isAddMembersOpen"></CreateMemberForm>            
+        </Transition>
+
         <MembersList></MembersList>
 
     </main>
@@ -26,5 +28,8 @@ const toggleAddMembers = () => {
 </script>
 
 <style lang="scss" scoped>
+img {
+    transition: all ease-in-out 0.3s;
+}
 
 </style>
