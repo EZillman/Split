@@ -1,12 +1,12 @@
 <template>
     <HeaderNav></HeaderNav>
-    <div>
+    <main>
         <h1>Members</h1>
 
         <CreateMemberForm></CreateMemberForm>
         <MembersList></MembersList>
 
-    </div>
+    </main>
 </template>
 
 <script setup>

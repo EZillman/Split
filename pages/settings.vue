@@ -1,10 +1,10 @@
 <template>
     <HeaderNav></HeaderNav>
-    <div>
+    <main>
         <h1>Settings</h1>
 
         <LogoutBtn></LogoutBtn>
-    </div>
+    </main>
 </template>
 
 <script setup>

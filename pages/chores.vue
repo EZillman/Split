@@ -1,11 +1,11 @@
 <template>
     <HeaderNav></HeaderNav>
-    <div>
+    <main>
         <h1>Chores</h1>
         <CreateChoresForm></CreateChoresForm>
         <ChoresList></ChoresList>
         
-    </div>
+    </main>
 </template>
 
 <script setup>

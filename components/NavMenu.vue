@@ -139,6 +139,7 @@ div button {
 
     div button {
         right: 1rem;
+        padding: 0;
         display: block;
         height: 7rem;
         width: 7rem;
@@ -151,7 +152,7 @@ div button {
     }
 
     .close-btn-img {
-        margin: -0.8rem 0 0 -1.15rem ;
+        margin: -0.8rem 0 0 -0.7rem ;
     }
 
     .close-btn {
