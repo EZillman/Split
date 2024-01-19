@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <ChosenChore></ChosenChore>
     </div>
 </template>
 

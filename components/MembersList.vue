@@ -3,15 +3,18 @@
         <ul>
             <li v-for="member in members" :key="member.id">
                 <h3>{{ member.name }}</h3>
-                <button @click="selectMember(member.name)">Select</button>
+                <button @click="selectMember(member.name, member.id)">Select</button>
             </li>
         </ul>
     </div>
 </template>
 
 <script setup>
+import { useMemberStore } from '~/store/member.js';
+
 const router = useRouter();
 const supabase = useSupabaseClient();
+const store = useMemberStore();
 const user = useSupabaseUser();
 const userId = user.value.id;
 const members = ref([]);
@@ -35,7 +38,8 @@ async function fetchMembers() {
   }
 }
 
-function selectMember(memberName) {
+function selectMember(memberName, memberId) {
+  store.setMemberId(memberId);
   const formattedName = memberName.toLowerCase().replace(/\s+/g, '-');
   const routePath = `/members/${formattedName}`;
   router.push(routePath);
