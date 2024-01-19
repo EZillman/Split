@@ -3,13 +3,14 @@
         <ul>
             <li v-for="member in members" :key="member.id">
                 <h3>{{ member.name }}</h3>
-                <button>Select</button>
+                <button @click="selectMember(member.name)">Select</button>
             </li>
         </ul>
     </div>
 </template>
 
 <script setup>
+const router = useRouter();
 const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 const userId = user.value.id;
@@ -32,6 +33,12 @@ async function fetchMembers() {
   } catch (error) {
     console.error('Error fetching members:', error.message);
   }
+}
+
+function selectMember(memberName) {
+  const formattedName = memberName.toLowerCase().replace(/\s+/g, '-');
+  const routePath = `/members/${formattedName}`;
+  router.push(routePath);
 }
 
 </script>
@@ -68,7 +75,6 @@ button {
   ul {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 2rem;
   }
 
   li {
@@ -79,6 +85,7 @@ button {
 @media screen and (min-width: 1024px) {
   ul {
     display: block;
+    margin-right: 2rem;
   }
 
   li {
