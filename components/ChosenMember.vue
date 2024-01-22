@@ -13,8 +13,9 @@
 
             </ul>
         </div>
-        <h2>Chosen member</h2>
-        <p>{{ $route.params.name }}</p>
+        <AssignChores></AssignChores>
+
+        <h2>{{ $route.params.name }}</h2>
         <p>{{ store.memberId }}</p>
     </div>
 </template>

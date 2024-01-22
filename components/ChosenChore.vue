@@ -13,8 +13,7 @@
 
             </ul>
         </div>
-        <h2>Chosen chore</h2>
-        <p>{{ $route.params.name }}</p>
+        <h2>{{ $route.params.name }}</h2>
         <p>{{ store.choreId }}</p>
         <p>Time estimated: {{ chore.time_estimated }} minutes</p>
         <p>Monthly frequency: {{ chore.monthly_frequency }} times a month</p>
