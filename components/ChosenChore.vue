@@ -1,6 +1,19 @@
 <template>
     <div>
-        Chosen chore
+        <div>
+            <ul>
+                <NuxtLink to="/chores">
+                    <li>Chores</li>
+                </NuxtLink>
+
+                <li>></li>
+                <NuxtLink :to="'/chores/' + $route.params.name">
+                    <li>{{ $route.params.name }}</li>                    
+                </NuxtLink>
+
+            </ul>
+        </div>
+        <h2>Chosen chore</h2>
         <p>{{ $route.params.name }}</p>
         <p>{{ store.choreId }}</p>
         <p>Time estimated: {{ chore.time_estimated }} minutes</p>
@@ -26,11 +39,8 @@ async function fetchChore() {
       .select('*')
       .eq('id', store.choreId)
       .single(); 
-
     if (error) throw error;
-    
     chore.value = data;
-    console.log('data', data);
   } catch (error) {
     console.error('Error fetching chore:', error.message);
   }
