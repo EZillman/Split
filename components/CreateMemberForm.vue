@@ -60,7 +60,6 @@ async function addMember() {
 }
 
 async function submitForm() {
-   console.log('user', userId);
    await addMember();
    member_name.value = '';
 }

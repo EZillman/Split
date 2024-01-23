@@ -24,6 +24,8 @@
 import { useMemberStore } from '~/store/member.js';
 
 const store = useMemberStore();
+
+
 </script>
 
 <style lang="scss" scoped>
