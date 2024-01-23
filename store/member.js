@@ -10,4 +10,5 @@ export const useMemberStore = defineStore({
             this.memberId = id;
         },
     },
+    persist: true,
 });
