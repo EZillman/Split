@@ -3,7 +3,8 @@
         <h3>Assigned chores</h3>
         <ul>
             <li v-for="assignedChore in assignedChores" :key="assignedChore.id">
-                {{ assignedChore.name }}
+                <h3>{{ assignedChore.name }}</h3>
+                <button>Unassign</button>
             </li>
         </ul>
     </div>
@@ -56,5 +57,25 @@ async function fetchAssignedChores() {
 </script>
 
 <style lang="scss" scoped>
+h3 {
+    display: flex;
+    justify-content: center;
+}
 
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    margin: 0.8rem;
+    border: 0.12rem solid #54E3EC;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
+    color: #324B4B;
+    background-color: #aececd86;
+
+    button {
+        width: 50%;
+    }
+}
 </style>

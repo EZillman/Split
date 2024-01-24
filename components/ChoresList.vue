@@ -55,10 +55,6 @@ function selectChore(choreName, choreId) {
 </script>
 
 <style lang="scss" scoped>
-ul {
-  list-style-type: none;
-  padding: 0;
-}
 
 li {
   display: flex;

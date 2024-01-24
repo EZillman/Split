@@ -49,11 +49,6 @@ function selectMember(memberName, memberId) {
 
 <style lang="scss" scoped>
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
 li {
   display: flex;
   justify-content: space-between;

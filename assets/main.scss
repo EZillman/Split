@@ -36,6 +36,11 @@ p {
     font-size: 1.25rem;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
 form {
     margin: 0.2rem 0.5rem;
 }
@@ -57,6 +62,18 @@ label {
 
 input {
     width: 91%;
+    height: 3.6rem;
+    margin: 1% 1%;
+    padding: 0 2%;
+    font-size: 1rem;
+    border: 0.1rem #324B4B solid;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
+    background-color: #DEF2EB;
+}
+
+select {
+    width: 95%;
     height: 3.6rem;
     margin: 1% 1%;
     padding: 0 2%;
@@ -99,6 +116,19 @@ button:hover {
         background-color: #324B4B;
         border-color: #54E3EC;
     }
+}
+
+.breadcrumbs {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    color: #324B4B;
 }
 
 .rotated {

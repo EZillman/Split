@@ -1,12 +1,13 @@
 <template>
     <div>
         <div>
-            <ul>
+            <ul class="breadcrumbs">
                 <NuxtLink to="/members">
                     <li>Members</li>
                 </NuxtLink>
 
-                <li>></li>
+                <li>/</li>
+                
                 <NuxtLink :to="'/members/' + $route.params.name">
                     <li>{{ $route.params.name }}</li>                    
                 </NuxtLink>
