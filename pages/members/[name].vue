@@ -1,31 +1,36 @@
 <template>
     <HeaderNav></HeaderNav>
-    <main>
+    <main>            
         <ChosenMember></ChosenMember>
+        <div class="members-and-chores-container">
 
-        <div class="add-btn-container">
-            <h3>Assign chore</h3>
-            <button @click="toggleAssignChores">
-                <img :class="{ rotated: isAssignChoresOpen }" src="/down.png" height="30" width="30">
-            </button>            
+            <div class="desktop-add-container">
+                <div class="add-btn-container">
+                    <h3>Assign chore</h3>
+                    <button @click="toggleAssignChores">
+                        <img :class="{ rotated: isAssignChoresOpen }" src="/down.png" height="30" width="30">
+                    </button>            
+                </div>
+
+                <Transition name="fade">
+                    <AssignChoresForm v-if="isAssignChoresOpen"></AssignChoresForm>            
+                </Transition>        
+
+                <div class="add-btn-container">
+                    <h3>Edit member</h3>
+                    <button @click="toggleEditMember">
+                        <img :class="{ rotated: isEditMemberOpen }" src="/down.png" height="30" width="30">
+                    </button>            
+                </div>
+
+                <Transition name="fade">
+                    <EditMemberForm v-if="isEditMemberOpen"></EditMemberForm>            
+                </Transition>  
+            </div>
+
+            <MemberAssignments></MemberAssignments>            
         </div>
 
-        <Transition name="fade">
-            <AssignChoresForm v-if="isAssignChoresOpen"></AssignChoresForm>            
-        </Transition>        
-
-        <div class="add-btn-container">
-            <h3>Edit member</h3>
-            <button @click="toggleEditMember">
-                <img :class="{ rotated: isEditMemberOpen }" src="/down.png" height="30" width="30">
-            </button>            
-        </div>
-
-        <Transition name="fade">
-            <EditMemberForm v-if="isEditMemberOpen"></EditMemberForm>            
-        </Transition>    
-
-        <MemberAssignments></MemberAssignments>
     </main>
 </template>
 

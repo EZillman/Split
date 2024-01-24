@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="members-and-chores">
         <h3>Assigned chores</h3>
         <ul class="chore-container">
             <li v-for="assignedChore in assignedChores" :key="assignedChore.id" >
@@ -72,5 +72,11 @@ h3 {
 button {
     width: 40%;
     margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+    h3 {
+        margin: 0.2rem 0;
+    }
 }
 </style>
