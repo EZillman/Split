@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h3>Assign chores</h3>
         <form @submit.prevent="submitForm">
             <label for="chores">Assign chore</label>
             <select name="chores" id="chores" v-model="selectedChoreId" required>

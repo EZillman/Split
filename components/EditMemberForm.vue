@@ -1,8 +1,10 @@
 <template>
-    <HeaderNav></HeaderNav>
-    <main>
-        <ChosenChore></ChosenChore>
-    </main>
+    <div>
+
+        <form>
+            <input>
+        </form>
+    </div>
 </template>
 
 <script setup>

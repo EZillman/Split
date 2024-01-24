@@ -14,8 +14,6 @@
             </ul>
         </div>
         <h2>{{ $route.params.name }}</h2>
-        <AssignChores></AssignChores>
-        <MemberAssignments></MemberAssignments>
     </div>
 </template>
 
