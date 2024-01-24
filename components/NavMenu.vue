@@ -16,13 +16,13 @@
                     Members
                 </li>
             </NuxtLink>
-            <NuxtLink to="chores" exact-active-class="active-link">
+            <NuxtLink to="/chores" exact-active-class="active-link">
                 <li>
                     <img src="/vacuum-cleaner.png" height="49" width="49">
                     Chores
                 </li>
             </NuxtLink>
-            <NuxtLink to="settings" exact-active-class="active-link">
+            <NuxtLink to="/settings" exact-active-class="active-link">
                 <li>
                     <img src="/setting.png" height="49" width="49">
                     Settings
