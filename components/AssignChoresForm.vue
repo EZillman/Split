@@ -51,6 +51,13 @@ async function fetchChores() {
 }
 
 async function addAssignment(choreId) {
+    const existingAssignment = chores.value.find(chore => chore.id === choreId);
+
+    if (existingAssignment) {
+        errorMsg.value = 'You are already assigned this chore!';
+        return;
+    }
+
     const newAssignment = {
         user_id: userId,
         member_id: store.memberId,

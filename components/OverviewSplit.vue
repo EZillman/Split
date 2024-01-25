@@ -59,6 +59,7 @@ function handleMembers(members) {
 }
 
 function calculateDistribution(memberId) {
+  // Om mer än en medlem är assignad på en chore, dela minuterna på antalet assignade medlemmar
   const memberAssignments = assignments.value.filter(
     (assignment) => assignment.member_id === memberId
   );
