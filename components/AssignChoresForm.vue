@@ -51,10 +51,10 @@ async function fetchChores() {
 }
 
 async function addAssignment(choreId) {
-    const existingAssignment = chores.value.find(chore => chore.id === choreId);
+    const existingAssignment = chores.value.find(chore => chore.id === choreId && chore.member_id === store.memberId);
 
     if (existingAssignment) {
-        errorMsg.value = 'You are already assigned this chore!';
+        errorMsg.value = 'You have already assigned yourself this chore!';
         return;
     }
 
