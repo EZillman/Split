@@ -1,13 +1,13 @@
 <template>
   <div>
-    <OverviewChoice></OverviewChoice>
+    <OverviewSelect @change-option="handleOptionChange"></OverviewSelect>
     <OverviewChores @chores="handleChores"></OverviewChores>
     <OverviewMembers @members="handleMembers"></OverviewMembers>
 
     <ul>
       <li v-for="member in householdMembers" :key="member.id">
-        {{ member.name }} - {{ calculateDistribution(member.id) }} hours a month
-        {{ calculatePercentage(member.id) }}% of total
+        {{ member.name }}
+        {{ renderDistribution(member.id) }}
       </li>
     </ul>
   </div>
@@ -21,6 +21,7 @@ const assignments = ref([]);
 const householdMembers = ref([]);
 const householdChores = ref([]);
 const sharedChores = ref({});
+const selectedOption = ref(null);
 
 onMounted(async () => {
   await fetchAssignments();
@@ -34,6 +35,20 @@ watch(assignments, () => {
     });
   }
 });
+
+function handleOptionChange(option) {
+  selectedOption.value = option;
+}
+
+function renderDistribution(memberId) {
+  if (selectedOption.value === 'percentage') {
+    return `${calculatePercentage(memberId)}% of total`;
+  } else if (selectedOption.value === 'hours') {
+    return `${calculateDistribution(memberId)} hours a month`;
+  } else {
+    return ''; 
+  }
+}
 
 async function fetchAssignments() {
   try {
