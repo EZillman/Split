@@ -5,9 +5,10 @@
     <OverviewMembers @members="handleMembers"></OverviewMembers>
 
     <ul>
-      <li v-for="member in householdMembers" :key="member.id">
-        {{ member.name }}
-        {{ renderDistribution(member.id) }}
+      <li v-for="member in householdMembers" :key="member.id" ref="chartRefs">
+        <h3>{{ member.name }}</h3>
+        <p>{{ renderDistribution(member.id) }}</p>
+        <PieChart :percentage="calculatePercentage(member.id)"></PieChart>
       </li>
     </ul>
   </div>
