@@ -27,7 +27,7 @@ onMounted(async () => {
   await fetchAssignments();
 });
 
-watch(assignments, () => {
+watch([assignments, householdMembers, householdChores], () => {
   if (householdMembers.value.length > 0 && householdChores.value.length > 0) {
     calculateSharedChores(); 
     householdMembers.value.forEach((member) => {

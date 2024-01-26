@@ -9,8 +9,12 @@
 </template>
 
 <script setup>
-const selectedOption = ref(null);
+const selectedOption = ref('percentage');
 const emit = defineEmits();
+
+onMounted(() => {
+  emit('change-option', selectedOption.value);
+});
 
 function emitOption() {
   emit('change-option', selectedOption.value);
