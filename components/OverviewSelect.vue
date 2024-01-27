@@ -35,10 +35,7 @@ function emitOption() {
 
 @media screen and (min-width: 1024px) {
   div {
-    position: absolute;
-    margin: 0;
-    top: 15%;
-    right: 22%;
+    
 
     label {
       width: 14rem;

@@ -173,6 +173,7 @@ h3 {
 @media screen and (min-width: 1024px) {
   .distribution-container {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: center;
     margin: 2% 5%;
   }
