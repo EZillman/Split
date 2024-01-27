@@ -4,11 +4,12 @@
     <OverviewChores @chores="handleChores"></OverviewChores>
     <OverviewMembers @members="handleMembers"></OverviewMembers>
 
+    <PieChart v-if="canRenderChart && householdMembers.length > 0" :percentage="calculatePercentageForChart" :householdMembers="householdMembers"></PieChart>
+
     <ul>
       <li v-for="member in householdMembers" :key="member.id" ref="chartRefs">
         <h3>{{ member.name }}</h3>
         <p>{{ renderDistribution(member.id) }}</p>
-        <PieChart :percentage="calculatePercentage(member.id)"></PieChart>
       </li>
     </ul>
   </div>
@@ -23,6 +24,7 @@ const householdMembers = ref([]);
 const householdChores = ref([]);
 const sharedChores = ref({});
 const selectedOption = ref(null);
+const canRenderChart = ref(false);
 
 onMounted(async () => {
   await fetchAssignments();
@@ -100,15 +102,21 @@ function calculateDistribution(memberId) {
   const totalMinutes = memberAssignments.reduce((total, assignment) => {
     const choreId = assignment.chore_id;
     const chore = householdChores.value.find((chore) => chore.id === choreId);
-    const monthlyMinutes = chore.time_estimated * chore.monthly_frequency;
 
-     // If the task is shared among multiple members, distribute the minutes equally.
-    if (sharedChores.value[choreId] && sharedChores.value[choreId].length > 1) {
-      const totalAssignees = sharedChores.value[choreId].length;
-      const distributedMinutes = monthlyMinutes / totalAssignees;
-      return total + distributedMinutes;
+    // Add a check to ensure chore is defined before accessing time_estimated.
+    if (chore && chore.time_estimated !== undefined) {
+      const monthlyMinutes = chore.time_estimated * chore.monthly_frequency;
+
+      // If the task is shared among multiple members, distribute the minutes equally.
+      if (sharedChores.value[choreId] && sharedChores.value[choreId].length > 1) {
+        const totalAssignees = sharedChores.value[choreId].length;
+        const distributedMinutes = monthlyMinutes / totalAssignees;
+        return total + distributedMinutes;
+      } else {
+        return total + monthlyMinutes;
+      }
     } else {
-      return total + monthlyMinutes;
+      return total;
     }
   }, 0);
 
@@ -116,6 +124,7 @@ function calculateDistribution(memberId) {
 
   return totalHours;
 }
+
 
 function calculateTotalMinutes() {
   // Calculate the total number of minutes for all tasks.
@@ -129,9 +138,16 @@ function calculatePercentage(memberId) {
   const totalMinutes = calculateTotalMinutes();
   const memberMinutes = calculateDistribution(memberId) * 60; // Convert from hours to minutes
   const percentage = (memberMinutes / totalMinutes) * 100;
-
-  return percentage.toFixed(1); // Round to one decimal place.
+  
+  canRenderChart.value = true;
+  return percentage.toFixed(1);
 }
+
+const calculatePercentageForChart = computed(() => {
+  return householdMembers.value.map((member) => {
+    return calculatePercentage(member.id);
+  });
+});
 
 </script>
 
