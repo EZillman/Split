@@ -14,11 +14,13 @@ const percentageRef = computed(() => props.percentage);
 onMounted(() => {
   watch([props.householdMembers, percentageRef], () => {
     if (percentageRef.value && percentageRef.value.length > 0 && props.householdMembers && props.householdMembers.length > 0) {
-      console.log('members', props.householdMembers);
-      renderPieChart();
+      nextTick(() => {
+        renderPieChart();
+      });
     }
-  })
+  });
 });
+
 
 const generateColors = (count) => {
   const randomColor = () => `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.7)`;
