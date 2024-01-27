@@ -23,5 +23,31 @@ function emitOption() {
 </script>
 
 <style lang="scss" scoped>
+@media screen and (min-width: 760px) {
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1% 20%;
+
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  div {
+    position: absolute;
+    margin: 0;
+    top: 15%;
+    right: 22%;
+
+    label {
+      width: 14rem;
+    }
+
+    select {
+      width: 14rem;
+    }
+  }
+}
 
 </style>

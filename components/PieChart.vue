@@ -1,6 +1,6 @@
 <template>
     <div>
-      <canvas id="chartCanvas" height="100" width="100"></canvas>
+      <canvas id="chartCanvas" height="200" width="200"></canvas>
     </div>
  </template>
   
@@ -23,8 +23,13 @@ onMounted(() => {
 
 
 const generateColors = (count) => {
-  const randomColor = () => `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.7)`;
-  return Array.from({ length: count }, randomColor);
+  const blueGreenColor = () => {
+    const blue = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    return `rgba(0, ${green}, ${blue}, 0.7)`;
+  };
+
+  return Array.from({ length: count }, blueGreenColor);
 };
 
 const renderPieChart = () => {
@@ -66,5 +71,16 @@ const renderPieChart = () => {
 </script>
   
 <style lang="scss" scoped>
+@media screen and (min-width: 760px) {
+  canvas {
+    height: 400px;
+    width: 400px;
+  }
+}
 
+@media screen and (min-width: 1024px) {
+  div {
+    width: 50%;
+  }
+}
 </style>

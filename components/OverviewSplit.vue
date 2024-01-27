@@ -4,14 +4,17 @@
     <OverviewChores @chores="handleChores"></OverviewChores>
     <OverviewMembers @members="handleMembers"></OverviewMembers>
 
-    <PieChart v-if="canRenderChart && householdMembers.length > 0" :percentage="calculatePercentageForChart" :householdMembers="householdMembers"></PieChart>
+    <div class="distribution-container">
+      <PieChart v-if="canRenderChart && householdMembers.length > 0" :percentage="calculatePercentageForChart" :householdMembers="householdMembers"></PieChart>
 
-    <ul>
-      <li v-for="member in householdMembers" :key="member.id" ref="chartRefs">
-        <h3>{{ member.name }}</h3>
-        <p>{{ renderDistribution(member.id) }}</p>
-      </li>
-    </ul>
+      <ul>
+        <li v-for="member in householdMembers" :key="member.id" ref="chartRefs">
+          <h3>{{ member.name }}</h3>
+          <p>{{ renderDistribution(member.id) }}</p>
+        </li>
+      </ul>      
+    </div>
+
   </div>
 </template>
 
@@ -45,7 +48,7 @@ function handleOptionChange(option) {
 
 function renderDistribution(memberId) {
   if (selectedOption.value === 'percentage') {
-    return `${calculatePercentage(memberId)}% of total`;
+    return `${calculatePercentage(memberId)}%`;
   } else if (selectedOption.value === 'hours') {
     return `${calculateDistribution(memberId)} hours a month`;
   } else {
@@ -140,7 +143,7 @@ function calculatePercentage(memberId) {
   const percentage = (memberMinutes / totalMinutes) * 100;
   
   canRenderChart.value = true;
-  return percentage.toFixed(1);
+  return percentage;
 }
 
 const calculatePercentageForChart = computed(() => {
@@ -153,5 +156,26 @@ const calculatePercentageForChart = computed(() => {
 
 
 <style lang="scss" scoped>
+h3 {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 760px) {
+  ul {
+    display: flex;
+    gap: 15%;
+    margin: 2% 10%;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .distribution-container {
+    display: flex;
+    justify-content: center;
+    margin: 2% 5%;
+  }
+}
 
 </style>
