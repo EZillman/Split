@@ -2,7 +2,7 @@
     <HeaderNav></HeaderNav>
     <main>
         <div class="members-and-chores-container">
-            <ChosenChore></ChosenChore>
+            <ChosenChore @chosenChore="saveChore"></ChosenChore>
 
             <div class="desktop-add-container">
                 <div class="add-btn-container">
@@ -13,7 +13,7 @@
                 </div>
         
                 <Transition name="fade">
-                    <EditChoreForm v-if="isEditChoreOpen"></EditChoreForm>            
+                    <EditChoreForm v-if="isEditChoreOpen" :chore="chore"></EditChoreForm>            
                 </Transition>                   
             </div>
    
@@ -23,10 +23,15 @@
 
 <script setup>
 const isEditChoreOpen = ref(false);
+const chore = ref(null);
 
 const toggleEditChore = () => {
   isEditChoreOpen.value = !isEditChoreOpen.value;
 };
+
+function saveChore(chosenChore) {
+    chore.value = chosenChore.value;
+}
 
 </script>
 

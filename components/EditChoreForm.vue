@@ -9,7 +9,7 @@
             id="chore_name"
             name="chore_name"
             v-model="chore_name"
-            placeholder="name"
+            :placeholder="`${chore.name}`"
             />
 
             <div>
@@ -23,7 +23,7 @@
                     class="small-input"
                     name="time_estimated"
                     v-model="time_estimated"
-                    placeholder="30"
+                    :placeholder="`${chore.time_estimated}`"
                     />                    
                 </div>
 
@@ -37,12 +37,11 @@
                     class="small-input"
                     name="monthly_frequency"
                     v-model="monthly_frequency"
-                    placeholder="4"
+                    :placeholder="`${chore.monthly_frequency}`"
                     />                      
                 </div>
               
             </div>
-
 
             <p v-if="successMsg">{{ successMsg }}</p>
             <p v-if="errorMsg">{{ errorMsg }}</p>
@@ -50,15 +49,16 @@
             <button type="submit">
                 Update chore
             </button>
-
-            <DeleteChore></DeleteChore>
         </form>
+        <DeleteChore></DeleteChore>
     </div>
 </template>
 
 <script setup>
 import { useChoreStore } from '~/store/chore.js';
 
+const props = defineProps(['chore']);
+const chore = props.chore;
 const store = useChoreStore();
 const supabase = useSupabaseClient();
 const chore_name = ref('');
@@ -66,6 +66,11 @@ const time_estimated = ref(null);
 const monthly_frequency = ref(null);
 const errorMsg = ref(null);
 const successMsg = ref(null);
+
+onMounted(() => {
+  console.log('props', chore);
+});
+
 
 function showSuccessMsg() {
     successMsg.value = 'Chore is updated!';

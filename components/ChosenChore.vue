@@ -26,6 +26,7 @@ import { useChoreStore } from '~/store/chore.js';
 const store = useChoreStore();
 const supabase = useSupabaseClient();
 const chore = ref({});
+const emit = defineEmits();
 
 onMounted(async () => {
   await fetchChore();
@@ -40,6 +41,7 @@ async function fetchChore() {
       .single(); 
     if (error) throw error;
     chore.value = data;
+    emit('chosenChore', chore);
   } catch (error) {
     console.error('Error fetching chore:', error.message);
   }
