@@ -10,6 +10,7 @@
             name="member_name"
             v-model="member_name"
             :placeholder="$route.params.name"
+            required
             />
 
             <p v-if="successMsg">{{ successMsg }}</p>
@@ -17,8 +18,9 @@
 
             <button type="submit">
                 Save changes
-            </button>
+            </button> 
         </form>
+        <DeleteMember></DeleteMember>
     </div>
 </template>
 
@@ -27,7 +29,6 @@ import { useMemberStore } from '~/store/member.js';
 
 const store = useMemberStore();
 const supabase = useSupabaseClient();
-const user = useSupabaseUser();
 const member_name = ref('');
 const errorMsg = ref(null);
 const successMsg = ref(null);
@@ -41,7 +42,6 @@ function showSuccessMsg() {
 
 async function updateMember() {
     const member = store;
-    console.log('memberstore', member);
     const editedMember = {
         name: member_name.value,
     }

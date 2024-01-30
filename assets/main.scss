@@ -171,6 +171,12 @@ button:hover {
 .fade-enter, .fade-leave-to {
     opacity: 0;
 }
+
+.danger-btn {
+    background-color: #8F0000;
+    border-color: #740000;
+    color: #F2F2F2;
+}
   
 
 @media screen and (min-width: 760px) {
