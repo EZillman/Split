@@ -32,7 +32,8 @@ const errorMsg = ref(null);
 const successMsg = ref(null);
 
 onMounted(async () => {
-  await fetchChores();
+    store.getMemberIdFromLocalStorage();
+    await fetchChores();
 });
 
 async function fetchChores() {

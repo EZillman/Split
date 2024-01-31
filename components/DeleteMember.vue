@@ -13,6 +13,10 @@ const store = useMemberStore();
 const supabase = useSupabaseClient();
 const router = useRouter();
 
+onMounted(() => {
+    store.getMemberIdFromLocalStorage();
+});
+
 async function deleteMember() {
     const member = store;
     if (member) {

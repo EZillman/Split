@@ -8,6 +8,13 @@ export const useMemberStore = defineStore({
     actions: {
         setMemberId(id) {
             this.memberId = id;
+            localStorage.setItem('memberId', id);
+        },
+        getMemberIdFromLocalStorage() {
+            const memberId = localStorage.getItem('memberId');
+            if (memberId) {
+                this.memberId = memberId;
+            }
         },
     },
     persist: true,

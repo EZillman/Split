@@ -13,6 +13,10 @@ const store = useChoreStore();
 const supabase = useSupabaseClient();
 const router = useRouter();
 
+onMounted(() => {
+    store.getChoreIdFromLocalStorage();
+});
+
 async function deleteChore() {
     const chore = store;
     if (chore) {

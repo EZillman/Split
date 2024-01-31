@@ -46,6 +46,7 @@ async function fetchChores() {
 }
 
 function selectChore(choreName, choreId) {
+  localStorage.setItem('choreId', choreId);
   store.setChoreId(choreId);
   const formattedName = choreName.toLowerCase().replace(/\s+/g, '-');
   const routePath = `/chores/${formattedName}`;

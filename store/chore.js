@@ -9,5 +9,11 @@ export const useChoreStore = defineStore({
         setChoreId(id) {
             this.choreId = id;
         },
+        getChoreIdFromLocalStorage() {
+            const choreId = localStorage.getItem('choreId');
+            if (choreId) {
+                this.choreId = choreId;
+            }
+        },
     },
 });

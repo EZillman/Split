@@ -33,6 +33,10 @@ const member_name = ref('');
 const errorMsg = ref(null);
 const successMsg = ref(null);
 
+onMounted(() => {
+    store.getMemberIdFromLocalStorage();
+});
+
 function showSuccessMsg() {
     successMsg.value = 'Member is updated!';
     setTimeout(() => {
@@ -56,7 +60,6 @@ async function updateMember() {
         } catch (error) {
             errorMsg.value = error.message;
         }
-        
     }
 }
 

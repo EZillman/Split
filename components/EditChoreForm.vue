@@ -68,9 +68,8 @@ const errorMsg = ref(null);
 const successMsg = ref(null);
 
 onMounted(() => {
-  console.log('props', chore);
+    store.getChoreIdFromLocalStorage();
 });
-
 
 function showSuccessMsg() {
     successMsg.value = 'Chore is updated!';

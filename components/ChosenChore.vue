@@ -29,6 +29,7 @@ const chore = ref({});
 const emit = defineEmits();
 
 onMounted(async () => {
+  store.getChoreIdFromLocalStorage();
   await fetchChore();
 });
 

@@ -26,6 +26,7 @@ const assignments = ref([]);
 const assignedChores = ref([]);
 
 onMounted(async () => {
+    store.getMemberIdFromLocalStorage();  
     await fetchAssignments();
 });
 

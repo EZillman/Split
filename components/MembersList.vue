@@ -39,6 +39,7 @@ async function fetchMembers() {
 }
 
 function selectMember(memberName, memberId) {
+  localStorage.setItem('memberId', memberId);
   store.setMemberId(memberId);
   const formattedName = memberName.toLowerCase().replace(/\s+/g, '-');
   const routePath = `/members/${formattedName}`;
