@@ -1,6 +1,6 @@
 <template>
     <div>
-      <canvas id="chartCanvas" height="200" width="200"></canvas>
+      <canvas id="chartCanvas" ref="canvas" height="200" width="200"></canvas>
     </div>
  </template>
   
@@ -9,6 +9,7 @@ import Chart from 'chart.js/auto';
 
 const props = defineProps(['percentage', 'householdMembers']);
 const chartRef = ref(null);
+const canvas = ref(null);
 const percentageRef = computed(() => props.percentage);
 
 onMounted(() => {
@@ -19,6 +20,8 @@ onMounted(() => {
       });
     }
   });
+  renderPieChart();
+  
 });
 
 
@@ -33,13 +36,15 @@ const generateColors = (count) => {
 };
 
 const renderPieChart = () => {
-  const canvas = document.getElementById('chartCanvas');
-  if (!canvas) {
+  console.log('hej');
+  //const canvas = document.getElementById('chartCanvas');
+  if (!canvas.value) {
     console.error('Canvas element not found.');
     return;
   }
 
   if (!props.householdMembers) {
+    console.log('test');
     return;
   }
 
@@ -51,6 +56,8 @@ const renderPieChart = () => {
     }],
   };
 
+  console.log(data);
+
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -60,7 +67,7 @@ const renderPieChart = () => {
     chartRef.value.destroy();
   }
 
-  chartRef.value = new Chart(canvas, {
+  chartRef.value = new Chart(canvas.value, {
     type: 'pie',
     data: data,
     options: options,
