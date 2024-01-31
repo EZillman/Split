@@ -1,14 +1,11 @@
 <template>
   <div>
     <OverviewSelect @change-option="handleOptionChange"></OverviewSelect>
-    <!--<OverviewChores @chores="handleChores"></OverviewChores>
-    <OverviewMembers @members="handleMembers"></OverviewMembers>-->
 
     <div class="distribution-container">
       <PieChart v-if="canRenderChart && members.length > 0" :percentage="calculatePercentageForChart" :householdMembers="members"></PieChart>
 
       <ul>
-        <!--<li v-for="member in householdMembers" :key="member.id" ref="chartRefs">-->
         <li v-for="member in members" :key="member.id" ref="chartRefs">
           <h3>{{ member.name }}</h3>
           <p>{{ renderDistribution(member.id) }}</p>
@@ -26,8 +23,6 @@ const userId = user.value.id;
 const assignments = ref([]);
 const members = ref([]);
 const chores = ref([]);
-//const householdMembers = ref([]);
-//const householdChores = ref([]);
 const sharedChores = ref({});
 const selectedOption = ref(null);
 const canRenderChart = ref(false);
@@ -36,23 +31,15 @@ onMounted(async () => {
   await fetchAssignments();
   await fetchChores();
   await fetchMembers();
-  //calculateSharedChores();
-  members.value.forEach((member) => {
+   members.value.forEach((member) => {
       calculateDistribution(member.id);
     });
+   
+  await nextTick();
+  calculateSharedChores();
+  await nextTick();
+  canRenderChart.value = true;
 });
-
-/**
- * watch([assignments, householdMembers, householdChores], () => {
-  if (householdMembers.value.length > 0 && householdChores.value.length > 0) {
-    calculateSharedChores(); 
-    householdMembers.value.forEach((member) => {
-      calculateDistribution(member.id);
-    });
-  }
-
-
-}); */
 
 function handleOptionChange(option) {
   selectedOption.value = option;
@@ -93,7 +80,6 @@ async function fetchMembers() {
     if (error) throw error;
     
     members.value = data;
-    //emit('members', members.value);
   } catch (error) {
     console.error('Error fetching members:', error.message);
   }
@@ -109,26 +95,16 @@ async function fetchChores() {
     if (error) throw error;
     
     chores.value = data;
-    //emit('chores', chores.value);
   } catch (error) {
     console.error('Error fetching chores:', error.message);
   }
 }
 
-/**
- * function handleChores(chores) {
-  householdChores.value = chores;
-}
-
-function handleMembers(members) {
-  householdMembers.value = members;
-}
-
- * 
- */
 
 function calculateSharedChores() {
   sharedChores.value = {};
+  console.log('assignments', assignments.value);
+  console.log('shared chores', sharedChores.value);
 
   // Loop through all assigned chores and track shared chores.
   assignments.value.forEach((assignment) => {
@@ -180,7 +156,6 @@ function calculateDistribution(memberId) {
 
 function calculateTotalMinutes() {
   // Calculate the total number of minutes for all chores.
-  //return householdChores.value.reduce((total, chore) => {
     return chores.value.reduce((total, chore) => {
     return total + chore.time_estimated * chore.monthly_frequency;
   }, 0);
@@ -192,19 +167,16 @@ function calculatePercentage(memberId) {
   const memberMinutes = calculateDistribution(memberId) * 60; // Convert from hours to minutes
   const percentage = (memberMinutes / totalMinutes) * 100;
   
-  canRenderChart.value = true;
   return percentage;
 }
 
 const calculatePercentageForChart = computed(() => {
-  //return householdMembers.value.map((member) => {
     return members.value.map((member) => {
     return calculatePercentage(member.id);
   });
 });
 
 </script>
-
 
 <style lang="scss" scoped>
 h3 {

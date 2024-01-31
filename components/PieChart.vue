@@ -1,6 +1,6 @@
 <template>
     <div>
-      <canvas id="chartCanvas" ref="canvas" height="200" width="200"></canvas>
+      <canvas ref="canvas" height="200" width="200"></canvas>
     </div>
  </template>
   
@@ -37,7 +37,6 @@ const generateColors = (count) => {
 
 const renderPieChart = () => {
   console.log('hej');
-  //const canvas = document.getElementById('chartCanvas');
   if (!canvas.value) {
     console.error('Canvas element not found.');
     return;
@@ -48,32 +47,39 @@ const renderPieChart = () => {
     return;
   }
 
-  const data = {
-    labels: props.householdMembers.map((member) => member.name),
-    datasets: [{
-      data: props.percentage,
-      backgroundColor: generateColors(props.householdMembers.length),
-    }],
-  };
+  try {
+    const data = {
+      labels: props.householdMembers.map((member) => member.name),
+      datasets: [{
+        data: props.percentage,
+        backgroundColor: generateColors(props.householdMembers.length),
+      }],
+    };
 
-  console.log(data);
+    console.log(data);
 
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-  };
+    const options = {
+      responsive: true,
+      maintainAspectRatio: false,
+    };
 
-  if (chartRef.value) {
-    chartRef.value.destroy();
+    nextTick(() => {
+      if (chartRef.value) {
+        chartRef.value.destroy();
+      }
+
+      chartRef.value = new Chart(canvas.value, {
+        type: 'pie',
+        data: data,
+        options: options,
+      });          
+    })
+
+  } catch (error) {
+    console.error('Error rendering pie chart:', error.message);
   }
 
-  chartRef.value = new Chart(canvas.value, {
-    type: 'pie',
-    data: data,
-    options: options,
-  });
 };
-
 
 </script>
   
