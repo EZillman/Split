@@ -110,7 +110,8 @@ button:hover {
 
 .add-btn-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    margin: 0 5%;
 
     button {
         height: 4rem;
@@ -202,6 +203,10 @@ button:hover {
         }
     }
 
+    .add-btn-container {
+        width: 20rem;
+    }
+
     .breadcrumbs {
         font-size: 1.75rem;
     }
@@ -240,6 +245,11 @@ button:hover {
         border-radius: 0.5rem;
         box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
         background-color: #aececd86;
+    }
+
+    .add-btn-container {
+        justify-content: center;
+        width: 90%;
     }
 
     .members-and-chores-container {

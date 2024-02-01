@@ -6,13 +6,13 @@
                     <li>Chores</li>
                 </NuxtLink>
                 <li>/</li>
-                <NuxtLink :to="'/chores/' + $route.params.name">
-                    <li>{{ $route.params.name }}</li>                    
+                <NuxtLink :to="'/chores/' + chore.name">
+                    <li>{{ chore.name }}</li>                    
                 </NuxtLink>
 
             </ul>
         </div>
-        <h2>{{ $route.params.name }}</h2>
+        <h2>{{ chore.name }}</h2>
         <div class="chore-container">
           <p>Time estimated: {{ chore.time_estimated }} minutes</p>
           <p>Monthly frequency: {{ chore.monthly_frequency }} times a month</p>          
