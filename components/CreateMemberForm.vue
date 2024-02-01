@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit.prevent="submitForm">
+        <form @submit.prevent="submitForm" class="form-container">
             <label for="member_name">
                 Member name
             </label>
@@ -67,27 +67,6 @@ async function submitForm() {
 </script>
 
 <style lang="scss" scoped>
-form {
-    margin: 1.5rem;
-}
 
-@media screen and (min-width: 760px) {
-    form {
-        margin: 2% 18%;
-        padding: 2rem;
-        border: 0.1rem #54E3EC solid;
-        border-radius: 0.5rem;
-        background-color: #aececd86;
-    }
-}
 
-@media screen and (min-width: 1024px) {
-    form {
-        margin: 0;
-        padding: 0.1rem;
-        border: none;
-        background-color: #54e2ec00;
-    }
-
-}
 </style>

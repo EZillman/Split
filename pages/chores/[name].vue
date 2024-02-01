@@ -4,7 +4,7 @@
         <div class="members-and-chores-container">
             <ChosenChore @chosenChore="saveChore"></ChosenChore>
 
-            <div class="desktop-add-container">
+            <div class="show-and-hide-container edit-container">
                 <div class="add-btn-container">
                     <h3>Edit chore</h3>
                     <button @click="toggleEditChore">
@@ -43,6 +43,11 @@ img {
 @media screen and (min-width: 1024px) {
     .desktop-add-container {
         margin: 10rem 2rem 0.5rem 1rem;
+    }
+
+    .edit-container {
+        margin-top: 10rem;
+        min-height: 20rem;
     }
 }
 </style>

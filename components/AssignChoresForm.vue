@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit.prevent="submitForm">
+        <form @submit.prevent="submitForm" class="form-container">
             <label for="chores">Assign chore</label>
             <select name="chores" id="chores" v-model="selectedChoreId" required>
                 <option value="chore" disabled>

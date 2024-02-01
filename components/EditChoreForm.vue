@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="form-container">
         <form @submit.prevent="submitForm">
             <label for="chore_name">
                 Chore name

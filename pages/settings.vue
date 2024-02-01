@@ -2,30 +2,40 @@
     <HeaderNav></HeaderNav>
     <main>
         <h2>Settings</h2>
+        
+        <div class="settings-forms-container">
+           <div class="show-and-hide-container desktop-form-container">
+                <div class="add-btn-container btn-container">
+                    <h3>Edit account</h3>
+                    <button @click="toggleEditUser">
+                        <img :class="{ rotated: isEditUserOpen }" src="/down.png" height="30" width="30">
+                    </button>            
+                </div>
 
-        <div class="add-btn-container">
-            <h3>Edit account</h3>
-            <button @click="toggleEditUser">
-                <img :class="{ rotated: isEditUserOpen }" src="/down.png" height="30" width="30">
-            </button>            
+                <Transition name="fade">
+                    <EditUserForm v-if="isEditUserOpen"></EditUserForm>
+                </Transition>            
+            </div>
+
+            <div class="show-and-hide-container desktop-form-container">
+                <div class="add-btn-container btn-container">
+                    <h3>Edit household</h3>
+                    <button @click="toggleEditHousehold">
+                        <img :class="{ rotated: isEditHouseholdOpen }" src="/down.png" height="30" width="30">
+                    </button>            
+                </div>
+
+                <Transition name="fade">
+                    <EditHouseholdForm v-if="isEditHouseholdOpen"></EditHouseholdForm>
+                </Transition>            
+            </div>
+        </div>
+ 
+
+        <div class="logout-btn">
+            <LogoutBtn></LogoutBtn>            
         </div>
 
-        <Transition name="fade">
-            <EditUserForm v-if="isEditUserOpen"></EditUserForm>
-        </Transition>
-
-        <div class="add-btn-container">
-            <h3>Edit household</h3>
-            <button @click="toggleEditHousehold">
-                <img :class="{ rotated: isEditHouseholdOpen }" src="/down.png" height="30" width="30">
-            </button>            
-        </div>
-
-        <Transition name="fade">
-            <EditHouseholdForm v-if="isEditHouseholdOpen"></EditHouseholdForm>
-        </Transition>
-
-        <LogoutBtn></LogoutBtn>
     </main>
 </template>
 
@@ -47,5 +57,37 @@ const toggleEditHousehold = () => {
 img {
     transition: all ease-in-out 0.3s;
 }
+
+@media screen and (min-width: 760px) {
+    .logout-btn {
+        margin: 1rem;
+    }    
+}
+
+
+@media screen and (min-width: 1024px) {
+
+    .settings-forms-container {
+        display: flex;
+    }
+    .desktop-form-container {
+        border: 0.1rem #324B4B solid;
+        background-color: #DEF2EB;
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }   
+    
+    .btn-container {
+        justify-content: space-between;
+        width: 18rem;
+        margin: 0 1rem;
+    }
+
+    .logout-btn {
+        width: 20rem;
+    }
+}
+
 
 </style>

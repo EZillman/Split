@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="form-container">
         <form @submit.prevent="submitForm">
             <label for="member_name">
                 Member name
@@ -69,5 +69,7 @@ async function submitForm() {
 </script>
 
 <style lang="scss" scoped>
-
+div {
+    margin: 0.2rem 0.5rem;
+}
 </style>

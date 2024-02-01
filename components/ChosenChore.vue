@@ -70,6 +70,7 @@ async function fetchChore() {
 @media screen and (min-width: 1024px) {
   .chore-container {
     margin: 10rem 1rem 0.5rem 2rem;
+    height: 22rem;
   }
 
   .chore {

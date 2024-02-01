@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit.prevent="submitForm">
+        <form @submit.prevent="submitForm" class="form-container">
             <label for="chore_name">
                 Chore name
             </label>
@@ -107,18 +107,9 @@ async function submitForm() {
 </script>
 
 <style lang="scss" scoped>
-form {
-    margin: 2%;
-}
 
 @media screen and (min-width: 760px) {
     form {
-        margin: 2% 15%;
-        padding: 2rem;
-        border: 0.1rem #54E3EC solid;
-        border-radius: 0.5rem;
-        background-color: #aececd86;
-
         div {
             display: flex;
             flex-direction: row;
@@ -135,16 +126,6 @@ form {
     .small-input {
         width: 95%;
     }
-}
-
-@media screen and (min-width: 1024px) {
-    form {
-        margin: 0;
-        padding: 0.1rem;
-        border: none;
-        background-color: #54e2ec00;
-    }
-
 }
 
 </style>

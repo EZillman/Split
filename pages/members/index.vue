@@ -4,7 +4,7 @@
         <h2>Members</h2>
 
         <div class="members-and-chores-container">
-            <div class="desktop-add-container">
+            <div class="show-and-hide-container">
                 <div class="add-btn-container">
                     <h3>Add members</h3>
                     <button @click="toggleAddMembers">

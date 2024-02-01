@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Monomaniac+One&family=Orbitron&family=Source+Code+Pro&family=Text+Me+One&display=swap');
 
-
 body {
     background-image: url('/tile_background\ \(2\).png');
     box-sizing: border-box;
@@ -47,6 +46,19 @@ ul {
 
 form {
     margin: 0.2rem 0.5rem;
+}
+
+.form-container {
+    margin: 0.8rem;
+    border: 0.1rem #54E3EC solid;
+    border-radius: 0.5rem;
+    background-color: #aececd86;
+    padding: 0.5rem;
+}
+
+.show-and-hide-container {
+    border: 0.1rem #324B4B solid;
+    background-color: #DEF2EB;
 }
 
 .button-container {
@@ -193,6 +205,11 @@ button:hover {
         font-size: 2rem;
     }
 
+    .form-container {
+        margin: 2% 15%;
+        padding: 2rem;
+    }
+
     .chore-container {
         display: flex;
         flex-wrap: wrap;
@@ -205,6 +222,7 @@ button:hover {
 
     .add-btn-container {
         width: 20rem;
+        margin-left: 27%;
     }
 
     .breadcrumbs {
@@ -226,6 +244,13 @@ button:hover {
         margin-top: 8rem;
     }
 
+    .form-container {
+        margin: 0;
+        padding: 0.1rem;
+        border: none;
+        background-color: #54e2ec00;
+    }
+
     .inputs-container {
         display: flex;
         flex-direction: row;
@@ -237,7 +262,7 @@ button:hover {
         }
     }
 
-    .desktop-add-container {
+    .show-and-hide-container {
         margin: 2%;
         width: 48%;
         padding: 2rem;
@@ -250,6 +275,24 @@ button:hover {
     .add-btn-container {
         justify-content: center;
         width: 90%;
+        margin: 0 5%;
+
+        button {
+            margin-top: 1.5rem;
+            height: 2.5rem;
+
+            img {
+                margin-top: -0.2rem;
+            }
+        }
+    }
+
+    .settings-form-container {
+        margin: 2% 15%;
+        border: 0.1rem #54E3EC solid;
+        border-radius: 0.5rem;
+        background-color: #aececd86;
+        padding: 0.5rem;
     }
 
     .members-and-chores-container {

@@ -1,10 +1,9 @@
 <template>
     <div>
-        <p v-if="!existingHousehold">
-            Choose a name for your household!
-        </p> 
-
-        <form @submit.prevent="submitForm">
+        <form @submit.prevent="submitForm" class="form-container settings-form-container">
+            <p v-if="!existingHousehold">
+                Choose a name for your household!
+            </p> 
             <div class="input-container">
                 <label for="householdName">
                     Household name
@@ -72,5 +71,9 @@ async function submitForm() {
 </script>
 
 <style lang="scss" scoped>
-
+button {
+    color: #D4F5F4;
+    background-color: #324B4B;
+    border-color: #54E3EC;
+}
 </style>

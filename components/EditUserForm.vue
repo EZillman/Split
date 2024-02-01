@@ -1,7 +1,7 @@
 <template>
     <div>
-        <form @submit.prevent="submitForm">
-            <div class="inputs-container">
+        <form @submit.prevent="submitForm" class="form-container settings-form-container">
+            
 
                 <div class="input-container">
                     <label for="email">
@@ -27,7 +27,7 @@
                     v-model="password"
                     />                
                 </div>               
-            </div>
+           
 
             <p v-if="successMsg">{{ successMsg }}</p>
             <p v-if="errorMsg">{{ errorMsg }}</p>
@@ -73,5 +73,9 @@ async function submitForm() {
 </script>
 
 <style lang="scss" scoped>
-
+button {
+    color: #D4F5F4;
+    background-color: #324B4B;
+    border-color: #54E3EC;
+}
 </style>
