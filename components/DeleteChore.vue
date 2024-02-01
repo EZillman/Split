@@ -18,19 +18,34 @@ onMounted(() => {
 });
 
 async function deleteChore() {
-    const chore = store;
-    if (chore) {
+    const choreId = store.choreId;
+    if (choreId) {
         try {
+            await deleteAssignments(choreId);
+
             const { data, error } = await supabase
             .from('chores')
             .delete()
-            .eq('id', chore.choreId)
+            .eq('id', choreId)
             if (error) throw error;
             router.push('/chores');
         } catch (error) {
             console.error('error deleting chore:', error.message);
         }      
     } 
+}
+
+async function deleteAssignments(choreId) {
+        try {
+            const { data, error } = await supabase
+                .from('assignments')
+                .delete()
+                .eq('chore_id', choreId);
+
+            if (error) throw error;
+        } catch (error) {
+            console.error('Error deleting assignments for chore:', error.message);
+        }        
 }
 </script>
 
