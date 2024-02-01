@@ -1,11 +1,14 @@
 <template>
     <div class="members-and-chores">
         <h3>Assigned chores</h3>
+        <p v-if="successMsg">{{ successMsg }}</p>
         <ul class="chore-container">
             <li v-for="assignedChore in assignedChores" :key="assignedChore.id" >
                 <div>
                     <h3>{{ assignedChore.name }}</h3>
-                    <button>Unassign</button>                    
+                    <button @click="unassignChore(assignedChore.id, assignedChore.name)">
+                        Unassign
+                    </button>                    
                 </div>
 
                 <div>
@@ -24,6 +27,7 @@ const store = useMemberStore();
 const supabase = useSupabaseClient();
 const assignments = ref([]);
 const assignedChores = ref([]);
+const successMsg = ref(null);
 
 onMounted(async () => {
     store.getMemberIdFromLocalStorage();  
@@ -61,7 +65,32 @@ async function fetchAssignedChores() {
   }
 }
 
+function showSuccessMsg(choreName) {
+    successMsg.value = `${choreName} is unassigned!`;
+    setTimeout(() => {
+        successMsg.value = null;
+    }, 3000);
+}
 
+async function unassignChore(choreId, choreName) {
+    try {
+        const assignmentToDelete = assignments.value.find(
+            (assignment) => assignment.chore_id === choreId
+        );
+
+        if (assignmentToDelete) {
+            const { data, error } = await supabase
+            .from('assignments')
+            .delete()
+            .eq('id', assignmentToDelete.id);
+            if (error) throw error;
+            showSuccessMsg(choreName);
+            await fetchAssignedChores();
+        }
+    } catch (error) {
+        console.error('Error unassigning chore:', error.message);
+    }
+}
 </script>
 
 <style lang="scss" scoped>
