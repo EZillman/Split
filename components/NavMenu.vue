@@ -1,5 +1,3 @@
-
-
 <template>
     <nav :class="{ 'tablet-nav-open': isMenuOpen }">
         <ul>
@@ -71,7 +69,7 @@ nav {
         justify-content: space-between;
         padding: 0;
         margin: 0.2rem;
-        height: 8rem;
+        height: 7rem;
 
         li {
             background-color: #4D6C6C;
@@ -82,8 +80,9 @@ nav {
             list-style-type: none;          
 
             a {
-                max-height: 5rem;
-                max-width: 5rem;
+                display: block;
+                height: 100%;
+                width: 100%;
                 text-decoration: none;
                 color: #D4F5F4;
             }    
@@ -146,13 +145,15 @@ div button {
     }
 
     div button {
-        right: 1rem;
+        right: 0;
+        top: 0;
         padding: 0;
         display: block;
         height: 7rem;
         width: 7rem;
-        position: absolute;
+        position: fixed;
         background-color: #324B4B;
+        box-shadow: none;
     }
 
     .open-btn-img {
@@ -164,7 +165,6 @@ div button {
     }
 
     .close-btn {
-        box-shadow: none;
         border: 0.2rem #54E3EC solid;
     }
 }
