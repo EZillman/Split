@@ -36,14 +36,12 @@ const generateColors = (count) => {
 };
 
 const renderPieChart = () => {
-  console.log('hej');
   if (!canvas.value) {
     console.error('Canvas element not found.');
     return;
   }
 
   if (!props.householdMembers) {
-    console.log('test');
     return;
   }
 
@@ -55,8 +53,6 @@ const renderPieChart = () => {
         backgroundColor: generateColors(props.householdMembers.length),
       }],
     };
-
-    console.log(data);
 
     const options = {
       responsive: true,

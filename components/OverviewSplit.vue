@@ -103,8 +103,6 @@ async function fetchChores() {
 
 function calculateSharedChores() {
   sharedChores.value = {};
-  console.log('assignments', assignments.value);
-  console.log('shared chores', sharedChores.value);
 
   // Loop through all assigned chores and track shared chores.
   assignments.value.forEach((assignment) => {
