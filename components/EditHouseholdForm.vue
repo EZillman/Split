@@ -36,32 +36,68 @@ const existingHousehold = ref(null);
 const errorMsg = ref(null);
 const successMsg = ref(null);
 
+onMounted(async () => {
+    await checkForHousehold();
+});
+
 function showSuccessMsg() {
-    successMsg.value = 'User is updated!';
+    successMsg.value = "Your household's name is updated!";
     setTimeout(() => {
         successMsg.value = null;
     }, 3000);
 }
 
+async function checkForHousehold() {
+    try {
+        const { data, error } = await supabase
+            .from('households')
+            .select('id, name')
+            .eq('user_id', userId)
+            .single();        
+
+        existingHousehold.value = data;
+        if (error) throw error;
+    } catch (error) {
+        console.error('Error fetching household:', error.message);
+    }    
+}
+
 async function updateHouseholdName() {
 
-        const household = {
-        name: householdName.value,
-        user_id: userId,
+    if (existingHousehold) {
+        // If household with the same user_id exists, update name if it's different
+        if (existingHousehold.name !== householdName.value) {
+            try {
+                const { data, error } = await supabase
+                    .from('households')
+                    .update({ name: householdName.value })
+                    .eq('user_id', userId);
+
+                showSuccessMsg();
+                if (error) throw error;
+            } catch (error) {
+                errorMsg.value = error.message;
+            }
+            
+        } else {
+            const household = {
+                name: householdName.value,
+                user_id: userId,
+            }
+            // If household with the same user_id doesn't exist, add a new one
+            try {
+                const { data, error } = await supabase
+                    .from('households')
+                    .insert([
+                        household
+                    ])
+                showSuccessMsg();
+                if (error) throw error;
+            } catch (error) {
+                errorMsg.value = error.message;
+            }            
         }
-        // If household with the same user_id doesn't exist, add a new one
-        try {
-            const { data, error } = await supabase
-                .from('households')
-                .insert([
-                    household
-                ])
-            showSuccessMsg();
-            if (error) throw error;
-        } catch (error) {
-            errorMsg.value = error.message;
-        }
-  
+    }
 }
 
 async function submitForm() {
