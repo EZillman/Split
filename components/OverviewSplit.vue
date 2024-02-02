@@ -182,21 +182,49 @@ h3 {
   justify-content: center;
 }
 
+ul {
+    margin: 1% 3%;
+
+}
+
+li {
+    margin: 1rem;
+    border: 0.12rem solid #54E3EC;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
+    color: #324B4B;
+    background-color: #aececd86;
+}
+
 @media screen and (min-width: 760px) {
   ul {
     display: flex;
-    gap: 15%;
+    flex-wrap: wrap;
     margin: 2% 10%;
     justify-content: center;
+
+  }
+
+  li {
+    width: 40%;
   }
 }
 
 @media screen and (min-width: 1024px) {
+  ul {
+    margin: 0 2%;
+    width: 50%;
+  }
+
+  li {
+    max-height: 10rem;
+    max-width: 10rem;
+  }
   .distribution-container {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: center;
-    margin: 2% 5%;
+    justify-content: space-around;
+    margin: 0 1%;
   }
 }
 

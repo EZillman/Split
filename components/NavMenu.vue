@@ -3,31 +3,34 @@
 <template>
     <nav :class="{ 'tablet-nav-open': isMenuOpen }">
         <ul>
-            <img src="/desktop-icon.png" class="desktop-icon" height="86" width="226">
-            <NuxtLink to="/home" exact-active-class="active-link">
-                <li>
+            <li>
+                <NuxtLink to="/home" exact-active-class="active-link">
                     <img src="/home.png" height="49" width="49"> 
                     Home
-                </li>
-            </NuxtLink>
-            <NuxtLink to="/members" exact-active-class="active-link">
-                <li>
+                </NuxtLink>
+            </li>
+            
+            <li>
+                <NuxtLink to="/members" exact-active-class="active-link">
                     <img src="/friends.png" height="49" width="49">
                     Members
-                </li>
-            </NuxtLink>
-            <NuxtLink to="/chores" exact-active-class="active-link">
-                <li>
-                    <img src="/vacuum-cleaner.png" height="49" width="49">
-                    Chores
-                </li>
-            </NuxtLink>
-            <NuxtLink to="/settings" exact-active-class="active-link">
-                <li>
+                </NuxtLink>
+            </li>
+            
+            <li>
+                <NuxtLink to="/chores" exact-active-class="active-link">
+                <img src="/vacuum-cleaner.png" height="49" width="49">
+                Chores              
+                </NuxtLink>                
+            </li>
+            
+            <li>
+                <NuxtLink to="/settings" exact-active-class="active-link">
                     <img src="/setting.png" height="49" width="49">
                     Settings
-                </li>
-            </NuxtLink>
+                </NuxtLink>
+            </li>
+
         </ul>
 
     </nav>
@@ -68,19 +71,20 @@ nav {
         justify-content: space-between;
         padding: 0;
         margin: 0.2rem;
+        height: 8rem;
 
-        a {
+        li {
             background-color: #4D6C6C;
             margin: 0 0.1rem;
             padding: 1rem 0.3rem;
             width: 25%;
             text-align: center;
-            text-decoration: none;            
+            list-style-type: none;          
 
-            li {
+            a {
                 max-height: 5rem;
                 max-width: 5rem;
-                list-style-type: none;
+                text-decoration: none;
                 color: #D4F5F4;
             }    
             
@@ -101,6 +105,10 @@ div button {
     display: none;
 }
 
+.only-desktop {
+    display: none;
+}
+
 @media screen and (min-width: 760px) {
     nav {
         height: 100%;
@@ -111,16 +119,16 @@ div button {
         ul {
             flex-direction: column;
                     
-            a {
+            li {
                 width: 100%;
                 text-align: left;
                 padding-left: 10%;
                 margin-top: 3rem;
                 background-color: #324B4B;
 
-                li {
-                    font-size: 48px;
+                a {
                     color: #54E3EC;
+                    font-size: 3rem;
                 }
 
                 &.active-link {
@@ -164,46 +172,44 @@ div button {
 @media screen and (min-width: 1024px) {
 
     nav {
-        height: 15%;
+        height: 8.2rem;
         top: 0;
         right: 0;
-        background-color: #324b4b00;
 
         ul {
             flex-direction: row;
+            padding-left: 5rem;
 
-            a {
+            li {
                 margin-top: 0;
-                background-color: #324b4b00;
+                padding-left: 0;
 
-                li {
-                    color: #324B4B;
+                a {
                     transition: all 0.3s ease-in-out;
+                    font-size: 4rem;
 
                     img {
                         display: none;
                     }
+                    
+                    &.active-link {
+                        background-color: #324b4b00;
+                        text-decoration: underline #54E3EC;
+                    } 
                 }
 
-                li:hover {
-                    font-size: 3.12rem;
+                a:hover {
+                    font-size: 4.1rem;
                     transition: all 0.3s ease-in-out;
                 }
 
-                &.active-link {
-                    background-color: #324b4b00;
-                    text-decoration: underline #324B4B;
-                }
+
             }
         }
     }
 
     div button {
         display: none;
-    }
-
-    .desktop-icon {
-        display: block;
     }
 
 }

@@ -1,6 +1,8 @@
 <template>
-    <div>
-      <canvas ref="canvas" height="200" width="200"></canvas>
+    <div class="canvas-container">
+      <div>
+        <canvas ref="canvas" height="200" width="200"></canvas>
+      </div>
     </div>
  </template>
   
@@ -82,14 +84,24 @@ const renderPieChart = () => {
 <style lang="scss" scoped>
 @media screen and (min-width: 760px) {
   canvas {
-    height: 400px;
-    width: 400px;
+    height: 18.75rem;
+    width: 18.75rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  div {
+  .canvas-container {
     width: 50%;
+
+    div {
+      width: 27rem;
+      padding: 3rem;
+      border: 0.12rem solid #54E3EC;
+      border-radius: 0.5rem;
+      box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
+      color: #324B4B;
+      background-color: #aececd86;      
+    }
   }
 }
 </style>

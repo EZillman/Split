@@ -35,14 +35,15 @@ function emitOption() {
 
 @media screen and (min-width: 1024px) {
   div {
-    
+    margin: 0 20%;    
 
     label {
       width: 14rem;
     }
 
     select {
-      width: 14rem;
+      width: 12rem;
+      height: 2rem;
     }
   }
 }
