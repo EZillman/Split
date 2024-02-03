@@ -1,5 +1,8 @@
 <template>
     <div class="chore">
+      <div class="loading-spinner">
+        <LoadingSpinner v-if="loading"></LoadingSpinner>        
+      </div>
         <div>
             <ul class="breadcrumbs">
               <li>
@@ -31,6 +34,7 @@ const store = useChoreStore();
 const supabase = useSupabaseClient();
 const chore = ref({});
 const emit = defineEmits();
+const loading = ref(false);
 
 function subscribeToDatabaseChanges() {
   const channel = supabase
@@ -58,6 +62,7 @@ onMounted(async () => {
 });
 
 async function fetchChore() {
+  loading.value = true;
   try {
     const { data, error } = await supabase
       .from('chores')
@@ -66,6 +71,7 @@ async function fetchChore() {
       .single(); 
     if (error) throw error;
     chore.value = data;
+    loading.value = false;
     emit('chosenChore', chore);
   } catch (error) {
     console.error('Error fetching chore:', error.message);
