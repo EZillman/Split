@@ -44,6 +44,8 @@ function emitOption() {
     select {
       width: 12rem;
       height: 2rem;
+      color: #324B4B;
+      border-color: #324B4B;
     }
   }
 }

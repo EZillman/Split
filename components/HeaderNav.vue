@@ -69,6 +69,12 @@ h1 {
 @media screen and (min-width: 1024px) {
     header {
         height: 0;
+
+        h1 {
+            display: none;
+        }
     }
+
+
 }
 </style>

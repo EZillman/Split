@@ -1,5 +1,5 @@
 <template>
-    <nav :class="{ 'tablet-nav-open': isMenuOpen }">
+    <nav :class="{ 'tablet-nav-open': isMenuOpen, 'nav-small': scrollDirection === 'up' }">
         <ul>
             <li>
                 <NuxtLink to="/home" exact-active-class="active-link">
@@ -47,7 +47,25 @@
 </template>
 
 <script setup>
+const scrollDirection = ref('down');
 const isMenuOpen = ref(false);
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+
+const handleScroll = () => {
+  const scrollY = window.scrollY;
+  if (scrollY > 0 && scrollDirection.value !== 'up') {
+    scrollDirection.value = 'up';
+  } else if (scrollY === 0 && scrollDirection.value !== 'down') {
+    scrollDirection.value = 'down';
+  }
+};
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
@@ -183,6 +201,7 @@ div button {
             li {
                 margin-top: 0;
                 padding-left: 0;
+                background-color: #324b4b00;
 
                 a {
                     transition: all 0.3s ease-in-out;
@@ -210,6 +229,18 @@ div button {
 
     div button {
         display: none;
+    }
+
+    .nav-small {
+        height: 6rem;
+
+        ul {
+            height: 5rem;
+        }
+
+        a {
+            font-size: 3rem;
+        }
     }
 
 }
