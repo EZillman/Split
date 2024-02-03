@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="loading-spinner">
+      <LoadingSpinner v-if="loading"></LoadingSpinner>       
+    </div> 
+
     <OverviewSelect @change-option="handleOptionChange"></OverviewSelect>
 
     <div class="distribution-container">
@@ -26,6 +30,7 @@ const chores = ref([]);
 const sharedChores = ref({});
 const selectedOption = ref(null);
 const canRenderChart = ref(false);
+const loading = ref(false);
 
 onMounted(async () => {
   await fetchAssignments();
@@ -39,6 +44,7 @@ onMounted(async () => {
   calculateSharedChores();
   await nextTick();
   canRenderChart.value = true;
+  loading.value = false;
 });
 
 function handleOptionChange(option) {
@@ -56,6 +62,7 @@ function renderDistribution(memberId) {
 }
 
 async function fetchAssignments() {
+  loading.value = true;
   try {
     const { data, error } = await supabase
       .from('assignments')

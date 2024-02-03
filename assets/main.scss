@@ -195,6 +195,13 @@ button:hover {
     color: #F2F2F2;
 }
   
+.loading-spinner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 45%;
+    left: 43%;
+}
 
 @media screen and (min-width: 760px) {
     h1 {
@@ -237,6 +244,11 @@ button:hover {
     .breadcrumbs {
         font-size: 1.75rem;
         width: 26rem;
+    }
+
+    .loading-spinner {
+        left: 46%;
+        top: 50%;
     }
 }
 
@@ -320,5 +332,9 @@ button:hover {
         li {
             width: 100%;
         }
+    }
+
+    .loading-spinner {
+        left: 48%;
     }
 }

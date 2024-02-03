@@ -1,5 +1,9 @@
 <template>
     <div class="members-and-chores">
+      <div class="loading-spinner">
+        <LoadingSpinner v-if="loading"></LoadingSpinner>        
+      </div>
+      
         <ul class="chore-container">
           <transition-group name="fade">
             <li v-for="chore in chores" :key="chore.id" >
@@ -28,6 +32,7 @@ const store = useChoreStore();
 const user = useSupabaseUser();
 const userId = user.value.id;
 const chores = ref([]);
+const loading = ref(false);
 
 function subscribeToDatabaseChanges() {
   const channel = supabase
@@ -54,6 +59,7 @@ onMounted(async () => {
 });
 
 async function fetchChores() {
+  loading.value = true;
   try {
     const { data, error } = await supabase
       .from('chores')
@@ -63,6 +69,7 @@ async function fetchChores() {
     if (error) throw error;
     
     chores.value = data;
+    loading.value = false;
   } catch (error) {
     console.error('Error fetching chores:', error.message);
   }
@@ -83,9 +90,6 @@ function selectChore(choreName, choreId) {
 button {
     width: 30%;
     margin-top: 0.5rem;
-    //color: #D4F5F4;
-    //background-color: #324B4B;
-    //border-color: #54E3EC;
 }
 
 @media screen and (min-width: 1024px) {

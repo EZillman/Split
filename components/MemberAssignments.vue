@@ -1,6 +1,9 @@
 <template>
     <div class="members-and-chores">
-        <h3>Assigned chores</h3>
+        <div class="loading-spinner">
+            <LoadingSpinner v-if="loading"></LoadingSpinner>        
+        </div>
+        <h3>Assigned chores</h3> 
         <p v-if="successMsg">{{ successMsg }}</p>
         <ul class="chore-container">
             <li v-for="assignedChore in assignedChores" :key="assignedChore.id" >
@@ -28,6 +31,7 @@ const supabase = useSupabaseClient();
 const assignments = ref([]);
 const assignedChores = ref([]);
 const successMsg = ref(null);
+const loading = ref(false);
 
 function subscribeToDatabaseChanges() {
   const channel = supabase
@@ -55,6 +59,7 @@ onMounted(async () => {
 });
 
 async function fetchAssignments() {
+    loading.value = true;
     try {
         const { data, error } = await supabase
             .from('assignments')
@@ -79,6 +84,7 @@ async function fetchAssignedChores() {
         .in('id', choreIds);
       if (error) throw error;
       assignedChores.value = data;
+      loading.value = false;
     }
   } catch (error) {
       console.error('Error fetching chores for assignments:', error.message);

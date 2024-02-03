@@ -1,5 +1,8 @@
 <template>
     <div class="members-and-chores">
+      <div class="loading-spinner">
+        <LoadingSpinner v-if="loading"></LoadingSpinner>        
+      </div>      
         <ul>
           <transition-group name="fade">
             <li v-for="member in members" :key="member.id">
@@ -21,6 +24,7 @@ const store = useMemberStore();
 const user = useSupabaseUser();
 const userId = user.value.id;
 const members = ref([]);
+const loading = ref(false);
 
 function subscribeToDatabaseChanges() {
   const channel = supabase
@@ -48,6 +52,7 @@ onMounted(async () => {
 });
 
 async function fetchMembers() {
+  loading.value = true;
   try {
     const { data, error } = await supabase
       .from('household_members')
@@ -57,6 +62,7 @@ async function fetchMembers() {
     if (error) throw error;
     
     members.value = data;
+    loading.value = false;
   } catch (error) {
     console.error('Error fetching members:', error.message);
   }
