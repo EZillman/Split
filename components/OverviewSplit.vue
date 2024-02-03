@@ -31,10 +31,10 @@ onMounted(async () => {
   await fetchAssignments();
   await fetchChores();
   await fetchMembers();
-   members.value.forEach((member) => {
-      calculateDistribution(member.id);
-    });
-   
+  members.value.forEach((member) => {
+    calculateDistribution(member.id);
+  });
+
   await nextTick();
   calculateSharedChores();
   await nextTick();

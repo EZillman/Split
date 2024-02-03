@@ -26,8 +26,28 @@ const user = useSupabaseUser();
 const userId = user.value.id;
 const chores = ref([]);
 
+function subscribeToDatabaseChanges() {
+  const channel = supabase
+    .channel('schema-db-changes')
+    .on(
+      'postgres_changes',
+      {
+        event: '*',
+        schema: 'public',
+        table: '*',
+      },
+      async (payload) => {
+        await fetchChores();
+      } 
+    )
+    .subscribe()
+
+  return channel;
+}
+
 onMounted(async () => {
   await fetchChores();
+  subscribeToDatabaseChanges();
 });
 
 async function fetchChores() {

@@ -28,9 +28,29 @@ const supabase = useSupabaseClient();
 const chore = ref({});
 const emit = defineEmits();
 
+function subscribeToDatabaseChanges() {
+  const channel = supabase
+    .channel('schema-db-changes')
+    .on(
+      'postgres_changes',
+      {
+        event: '*',
+        schema: 'public',
+        table: '*',
+      },
+      async (payload) => {
+        await fetchChore();
+      } 
+    )
+    .subscribe()
+
+  return channel;
+}
+
 onMounted(async () => {
   store.getChoreIdFromLocalStorage();
   await fetchChore();
+  subscribeToDatabaseChanges();
 });
 
 async function fetchChore() {

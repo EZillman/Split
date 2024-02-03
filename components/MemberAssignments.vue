@@ -29,9 +29,29 @@ const assignments = ref([]);
 const assignedChores = ref([]);
 const successMsg = ref(null);
 
+function subscribeToDatabaseChanges() {
+  const channel = supabase
+    .channel('schema-db-changes')
+    .on(
+      'postgres_changes',
+      {
+        event: '*',
+        schema: 'public',
+        table: '*',
+      },
+      async (payload) => {
+        await fetchAssignments();
+      } 
+    )
+    .subscribe()
+
+  return channel;
+}
+
 onMounted(async () => {
     store.getMemberIdFromLocalStorage();  
     await fetchAssignments();
+    subscribeToDatabaseChanges();
 });
 
 async function fetchAssignments() {

@@ -19,8 +19,29 @@ const user = useSupabaseUser();
 const userId = user.value.id;
 const members = ref([]);
 
+function subscribeToDatabaseChanges() {
+  const channel = supabase
+    .channel('schema-db-changes')
+    .on(
+      'postgres_changes',
+      {
+        event: '*',
+        schema: 'public',
+        table: '*',
+      },
+      async (payload) => {
+        await fetchMembers();
+      } 
+    )
+    .subscribe()
+
+  return channel;
+}
+
+
 onMounted(async () => {
   await fetchMembers();
+  subscribeToDatabaseChanges();
 });
 
 async function fetchMembers() {
