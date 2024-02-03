@@ -2,16 +2,19 @@
     <div>
         <div>
             <ul class="breadcrumbs">
+              <li>
                 <NuxtLink to="/members">
-                    <li>Members</li>
-                </NuxtLink>
+                    Members
+                </NuxtLink>                
+              </li>
 
-                <li>/</li>
+              <li>/</li>
                 
+              <li>
                 <NuxtLink :to="'/members/' + member.name">
-                    <li>{{ member.name }}</li>                    
-                </NuxtLink>
-
+                    {{ member.name }}                  
+                </NuxtLink>                
+              </li>
             </ul>
         </div>
         <h2>{{ member.name }}</h2>

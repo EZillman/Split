@@ -164,8 +164,9 @@ function calculatePercentage(memberId) {
   const totalMinutes = calculateTotalMinutes();
   const memberMinutes = calculateDistribution(memberId) * 60; // Convert from hours to minutes
   const percentage = (memberMinutes / totalMinutes) * 100;
-  
-  return percentage;
+  const formattedPercentage = percentage % 1 === 0 ? percentage.toFixed(0) : percentage.toFixed(1);
+
+  return formattedPercentage;
 }
 
 const calculatePercentageForChart = computed(() => {

@@ -162,6 +162,10 @@ button:hover {
     padding-left: 1rem;
     gap: 0.5rem;
     font-size: 1.25rem;
+    border-bottom: solid 0.15rem #324B4B;
+    width: 20rem;
+    margin-left: 0.5rem;
+    padding-left: 0;
 }
 
 .breadcrumbs a {
@@ -232,6 +236,7 @@ button:hover {
 
     .breadcrumbs {
         font-size: 1.75rem;
+        width: 26rem;
     }
 }
 

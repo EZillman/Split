@@ -2,14 +2,18 @@
     <div class="chore">
         <div>
             <ul class="breadcrumbs">
+              <li>
                 <NuxtLink to="/chores">
-                    <li>Chores</li>
+                  Chores
                 </NuxtLink>
-                <li>/</li>
+              </li>
+              <li>/</li>
+              
+              <li>
                 <NuxtLink :to="'/chores/' + chore.name">
-                    <li>{{ chore.name }}</li>                    
+                    {{ chore.name }}                   
                 </NuxtLink>
-
+              </li> 
             </ul>
         </div>
         <h2>{{ chore.name }}</h2>
@@ -71,7 +75,8 @@ async function fetchChore() {
 
 <style lang="scss" scoped>
 .chore-container {
-    margin: 2%;
+    margin: 0.5rem;
+    padding: 0.2rem;
     border: 0.1rem #54E3EC solid;
     border-radius: 0.5rem;
     box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
@@ -80,7 +85,7 @@ async function fetchChore() {
 
 @media screen and (min-width: 760px) {
   .chore-container {
-    margin: 1% 20%;
+    margin: 2rem 10rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;

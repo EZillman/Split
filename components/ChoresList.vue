@@ -1,6 +1,7 @@
 <template>
     <div class="members-and-chores">
         <ul class="chore-container">
+          <transition-group name="fade">
             <li v-for="chore in chores" :key="chore.id" >
                 <div>
                   <h3>{{ chore.name }}</h3>
@@ -11,7 +12,9 @@
                   <p>Time estimated: {{ chore.time_estimated }} minutes</p>
                   <p>Monthly frequency: {{ chore.monthly_frequency }}</p>
                 </div>
-            </li>
+            </li>            
+          </transition-group>
+
         </ul>
     </div>
 </template>

@@ -128,6 +128,7 @@ div button {
 
 @media screen and (min-width: 760px) {
     nav {
+        z-index: 2;
         height: 100%;
         width: 100%;
         right: -100%;
@@ -163,6 +164,7 @@ div button {
     }
 
     div button {
+        z-index: 2;
         right: 0;
         top: 0;
         padding: 0;
@@ -218,7 +220,7 @@ div button {
                 }
 
                 a:hover {
-                    font-size: 4.1rem;
+                    font-size: 4.2rem;
                     transition: all 0.3s ease-in-out;
                 }
 
@@ -240,6 +242,10 @@ div button {
 
         a {
             font-size: 3rem;
+        }
+
+        a:hover {
+            font-size: 3.2rem;
         }
     }
 

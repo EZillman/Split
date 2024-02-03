@@ -1,10 +1,13 @@
 <template>
     <div class="members-and-chores">
         <ul>
+          <transition-group name="fade">
             <li v-for="member in members" :key="member.id">
                 <h3>{{ member.name }}</h3>
                 <button @click="selectMember(member.name, member.id)">Select</button>
-            </li>
+            </li>            
+          </transition-group>
+
         </ul>
     </div>
 </template>
@@ -87,9 +90,6 @@ li {
 button {
     width: 30%;
     margin-top: 0.5rem;
-    //color: #D4F5F4;
-    //background-color: #324B4B;
-    //border-color: #54E3EC;
 }
 
 @media screen and (min-width: 760px) {
