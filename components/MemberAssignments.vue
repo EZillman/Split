@@ -67,6 +67,7 @@ async function fetchAssignments() {
             .eq('member_id', store.memberId)
         if (error) throw error;
         assignments.value = data;
+        loading.value = false;
         await fetchAssignedChores();
     } catch (error) {
         console.error('Error fetching assignments:', error.message);
@@ -84,7 +85,6 @@ async function fetchAssignedChores() {
         .in('id', choreIds);
       if (error) throw error;
       assignedChores.value = data;
-      loading.value = false;
     }
   } catch (error) {
       console.error('Error fetching chores for assignments:', error.message);

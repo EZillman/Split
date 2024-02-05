@@ -10,14 +10,14 @@
 
               <li>/</li>
                 
-              <li>
+              <li v-if="member">
                 <NuxtLink :to="'/members/' + member.name">
                     {{ member.name }}                  
                 </NuxtLink>                
               </li>
             </ul>
         </div>
-        <h2>{{ member.name }}</h2>
+        <h2 v-if="member">{{ member.name }}</h2>
     </div>
 </template>
 
