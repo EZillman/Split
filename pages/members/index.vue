@@ -7,8 +7,8 @@
             <div class="show-and-hide-container">
                 <div class="add-btn-container">
                     <h3>Add members</h3>
-                    <button @click="toggleAddMembers">
-                        <img :class="{ rotated: isAddMembersOpen }" src="/down.png" height="30" width="30">
+                    <button @click="toggleAddMembers" aria-label="toggle show add members form">
+                        <img :class="{ rotated: isAddMembersOpen }" src="/down.png" alt="up and down icon" height="30" width="30">
                     </button>            
                 </div>
 

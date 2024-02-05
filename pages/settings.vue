@@ -7,8 +7,8 @@
            <div class="show-and-hide-container desktop-form-container">
                 <div class="add-btn-container btn-container">
                     <h3>Edit account</h3>
-                    <button @click="toggleEditUser">
-                        <img :class="{ rotated: isEditUserOpen }" src="/down.png" height="30" width="30">
+                    <button @click="toggleEditUser" aria-label="toggle show edit user form">
+                        <img :class="{ rotated: isEditUserOpen }" src="/down.png" alt="up and down icon" height="30" width="30">
                     </button>            
                 </div>
 
@@ -20,8 +20,8 @@
             <div class="show-and-hide-container desktop-form-container">
                 <div class="add-btn-container btn-container">
                     <h3>Edit household</h3>
-                    <button @click="toggleEditHousehold">
-                        <img :class="{ rotated: isEditHouseholdOpen }" src="/down.png" height="30" width="30">
+                    <button @click="toggleEditHousehold" aria-label="toggle show edit household form">
+                        <img :class="{ rotated: isEditHouseholdOpen }" src="/down.png" alt="up and down icon" height="30" width="30">
                     </button>            
                 </div>
 

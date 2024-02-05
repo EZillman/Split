@@ -7,8 +7,8 @@
             <div class="show-and-hide-container">
                 <div class="add-btn-container">
                     <h3>Assign chore</h3>
-                    <button @click="toggleAssignChores">
-                        <img :class="{ rotated: isAssignChoresOpen }" src="/down.png" height="30" width="30">
+                    <button @click="toggleAssignChores" aria-label="toggle show assign chores form">
+                        <img :class="{ rotated: isAssignChoresOpen }" src="/down.png" alt="up and down icon" height="30" width="30">
                     </button>            
                 </div>
 
@@ -18,8 +18,8 @@
 
                 <div class="add-btn-container">
                     <h3>Edit member</h3>
-                    <button @click="toggleEditMember">
-                        <img :class="{ rotated: isEditMemberOpen }" src="/down.png" height="30" width="30">
+                    <button @click="toggleEditMember" aria-label="toggle show edit member form">
+                        <img :class="{ rotated: isEditMemberOpen }" src="/down.png" alt="up and down icon" height="30" width="30">
                     </button>            
                 </div>
 

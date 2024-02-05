@@ -7,8 +7,8 @@
             <div class="show-and-hide-container edit-container">
                 <div class="add-btn-container">
                     <h3>Edit chore</h3>
-                    <button @click="toggleEditChore">
-                        <img :class="{ rotated: isEditChoreOpen }" src="/down.png" height="30" width="30">
+                    <button @click="toggleEditChore" aria-label="toggle show edit chore form">
+                        <img :class="{ rotated: isEditChoreOpen }" src="/down.png" alt="up and down icon" height="30" width="30">
                     </button>            
                 </div>
         

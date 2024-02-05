@@ -7,8 +7,8 @@
             <div class="show-and-hide-container">
                 <div class="add-btn-container">
                     <h3>Add chores</h3>
-                    <button @click="toggleAddChores">
-                        <img :class="{ rotated: isAddChoresOpen }" src="/down.png" height="30" width="30">
+                    <button @click="toggleAddChores" aria-label="toggle show add chores form">
+                        <img :class="{ rotated: isAddChoresOpen }" src="/down.png" alt="up and down icon" height="30" width="30">
                     </button>            
                 </div>
 
