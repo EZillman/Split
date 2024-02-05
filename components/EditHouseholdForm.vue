@@ -36,10 +36,6 @@ const existingHousehold = ref(null);
 const errorMsg = ref(null);
 const successMsg = ref(null);
 
-onMounted(async () => {
-    await checkForHousehold();
-});
-
 function showSuccessMsg() {
     successMsg.value = "Your household's name is updated!";
     setTimeout(() => {
@@ -47,26 +43,14 @@ function showSuccessMsg() {
     }, 3000);
 }
 
-async function checkForHousehold() {
-    try {
-        const { data, error } = await supabase
-            .from('households')
-            .select('id, name')
-            .eq('user_id', userId)
-            .single();        
-
-        existingHousehold.value = data;
-        if (error) throw error;
-    } catch (error) {
-        console.error('Error fetching household:', error.message);
-    }    
-}
-
 async function updateHouseholdName() {
+  const existingHousehold = await supabase
+    .from('households')
+    .select('id, name')
+    .eq('user_id', userId)
+    .maybeSingle();
 
-    if (existingHousehold) {
-        // If household with the same user_id exists, update name if it's different
-        if (existingHousehold.name !== householdName.value) {
+    if (existingHousehold.name !== householdName.value) {
             try {
                 const { data, error } = await supabase
                     .from('households')
@@ -77,6 +61,7 @@ async function updateHouseholdName() {
                 if (error) throw error;
             } catch (error) {
                 errorMsg.value = error.message;
+                console.error('error updating:', error);
             }
             
         } else {
@@ -95,14 +80,15 @@ async function updateHouseholdName() {
                 if (error) throw error;
             } catch (error) {
                 errorMsg.value = error.message;
+                console.error('error inserting:', error);
             }            
         }
-    }
 }
 
 async function submitForm() {
-    await updateHouseholdName();
+  await updateHouseholdName();
 }
+
 
 </script>
 

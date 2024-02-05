@@ -4,18 +4,22 @@
       <LoadingSpinner v-if="loading"></LoadingSpinner>       
     </div> 
 
-    <OverviewSelect @change-option="handleOptionChange"></OverviewSelect>
+    <div v-if="assignments.length > 0">
+      <OverviewSelect @change-option="handleOptionChange"></OverviewSelect>
 
-    <div class="distribution-container">
-      <PieChart v-if="canRenderChart && members.length > 0" :percentage="calculatePercentageForChart" :householdMembers="members"></PieChart>
+      <div class="distribution-container">
+        <PieChart v-if="canRenderChart && members.length > 0" :percentage="calculatePercentageForChart" :householdMembers="members"></PieChart>
 
-      <ul>
-        <li v-for="member in members" :key="member.id" ref="chartRefs">
-          <h3>{{ member.name }}</h3>
-          <p>{{ renderDistribution(member.id) }}</p>
-        </li>
-      </ul>      
+        <ul>
+          <li v-for="member in members" :key="member.id" ref="chartRefs">
+            <h3>{{ member.name }}</h3>
+            <p>{{ renderDistribution(member.id) }}</p>
+          </li>
+        </ul>      
+      </div>      
     </div>
+
+    <OverviewEmptyText v-else></OverviewEmptyText>
 
   </div>
 </template>

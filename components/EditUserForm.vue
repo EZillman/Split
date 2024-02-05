@@ -40,6 +40,7 @@
 </template>
 
 <script setup>
+const supabase = useSupabaseClient();
 const email = ref('');
 const password = ref(null);
 const errorMsg = ref(null);
