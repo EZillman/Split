@@ -245,6 +245,10 @@ button:hover {
     .add-btn-container {
         width: 20rem;
         margin-left: 27%;
+
+        button {
+            margin-top: 1rem;
+        }
     }
 
     .breadcrumbs {
