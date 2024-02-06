@@ -1,15 +1,5 @@
 <template>
-  <div>
-    <p>test</p>
-    <NuxtWelcome />
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
-
-
-<style lang="scss" scoped>
-div {
-  p {
-    color: red;
-  }
-}
-</style>

@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Monomaniac+One&family=Orbitron&family=Source+Code+Pro&family=Text+Me+One&display=swap');
+
+body {
+    background-image: url('/tile_background\ \(2\).png');
+    box-sizing: border-box;
+    margin: 0;
+    color: #324B4B;
+    font-family: 'Text Me One', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    margin-bottom: 9rem;
+}
+
+h1 {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+form {
+    margin: 0.2rem 0.5rem;
+}
+
+.form-container {
+    margin: 0.8rem;
+    border: 0.1rem #54E3EC solid;
+    border-radius: 0.5rem;
+    background-color: #aececd86;
+    padding: 0.5rem;
+}
+
+.show-and-hide-container {
+    border: 0.1rem #324B4B solid;
+    background-color: #DEF2EB;
+}
+
+.button-container {
+    margin: 0 0.5rem;
+}
+
+.input-container {
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-left: 1%;
+    font-size: 1.25rem;
+}
+
+input {
+    width: 91%;
+    height: 3.6rem;
+    margin: 1% 1%;
+    padding: 0 2%;
+    font-size: 1rem;
+    border: 0.1rem #324B4B solid;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
+    background-color: #DEF2EB;
+}
+
+select {
+    width: 95%;
+    height: 3.6rem;
+    margin: 1% 1%;
+    padding: 0 2%;
+    font-size: 1rem;
+    border: 0.1rem #324B4B solid;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
+    background-color: #DEF2EB;
+}
+
+button {
+    width: 95%;
+    height: 3.73rem;
+    margin: 1% 1%;
+    padding: 0 2%;
+    font-size: 1.25rem;
+    border: 0.1rem #324B4B solid;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
+    background-color: #68EBF3;
+    transition: 0.2s all ease-in-out;
+}
+
+button:hover {
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+    border: none;
+    background-color: #83eef4;
+}
+
+.add-btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5%;
+
+    button {
+        height: 4rem;
+        width: 4rem;
+        padding-top: 0.5rem;
+        color: #D4F5F4;
+        background-color: #324B4B;
+        border-color: #54E3EC;
+    }
+}
+
+.chore-container {
+    li {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        margin: 0.8rem;
+        border: 0.12rem solid #54E3EC;
+        border-radius: 0.5rem;
+        box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
+        color: #324B4B;
+        background-color: #aececd86;
+    }    
+  
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+}
+
+.breadcrumbs {
+    display: flex;
+    padding-left: 1rem;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    width: 20rem;
+    margin-left: 0.5rem;
+    padding-left: 0;
+
+    a {
+        text-decoration: none;
+        
+        display: flex;
+        flex-direction: row;
+        color: #324B4B; 
+    }
+
+    .link-active {
+        border-bottom: solid 0.15rem #324B4B;
+    }
+}
+
+
+
+.rotated {
+    transform: rotate(180deg);
+    transition: all ease-in-out 0.3s;
+}
+
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.3s;
+}
+
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.danger-btn {
+    background-color: #8F0000;
+    border-color: #740000;
+    color: #F2F2F2;
+}
+
+.danger-btn:hover {
+    background-color: #a31c1c;
+}
+  
+.loading-spinner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 45%;
+    left: 43%;
+}
+
+@media screen and (min-width: 640px) {
+    h1 {
+        font-size: 4rem;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+        margin: 2rem 0 1rem 0;
+    }
+    
+    h3 {
+        font-size: 2rem;
+    }
+
+    main {
+        margin-top: 10rem;
+    }
+
+    .form-container {
+        margin: 2% 15%;
+        padding: 2rem;
+    }
+
+    .chore-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 2rem;
+
+        li {
+            width: 41%;
+        }
+    }
+
+    .add-btn-container {
+        width: 20rem;
+        margin-left: 27%;
+
+        button {
+            margin-top: 1rem;
+        }
+    }
+
+    .breadcrumbs {
+        font-size: 1.75rem;
+        width: 26rem;
+    }
+
+    .loading-spinner {
+        left: 46%;
+        top: 50%;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+
+    h1 {
+        font-size: 6rem;
+    }
+    
+    h2 {
+        font-size: 3rem;
+    }
+
+    main {
+        margin-top: 9rem;
+    }
+
+    .form-container {
+        margin: 0;
+        padding: 0.1rem;
+        border: none;
+        background-color: #54e2ec00;
+    }
+
+    .inputs-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 0.8rem;
+
+        .input-container {
+            width: 48%;;
+        }
+    }
+
+    .show-and-hide-container {
+        margin: 2%;
+        width: 48%;
+        padding: 2rem;
+        border: 0.1rem #54E3EC solid;
+        border-radius: 0.5rem;
+        box-shadow: 0.2rem 0.2rem 0.2rem #00000023;
+        background-color: #aececd86;
+    }
+
+    .add-btn-container {
+        justify-content: center;
+        width: 90%;
+        margin: 0 5%;
+
+        button {
+            margin-top: 1.5rem;
+            height: 2.5rem;
+
+            img {
+                margin-top: -0.2rem;
+            }
+        }
+    }
+
+    .settings-form-container {
+        margin: 2% 15%;
+        border: 0.1rem #54E3EC solid;
+        border-radius: 0.5rem;
+        background-color: #aececd86;
+        padding: 0.5rem;
+    }
+
+    .members-and-chores-container {
+        display: flex;
+    }
+
+    .members-and-chores {
+        margin: 2%;
+        width: 48%;
+    }
+
+    .chore-container {
+        display: block;
+
+        li {
+            width: 100%;
+        }
+    }
+
+    .loading-spinner {
+        left: 48%;
+    }
+}
