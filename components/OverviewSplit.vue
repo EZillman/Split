@@ -208,7 +208,7 @@ li {
     background-color: #aececd86;
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 640px) {
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -222,7 +222,7 @@ li {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
   ul {
     margin: 0 2%;
     width: 50%;

@@ -9,7 +9,7 @@
             id="member_name"
             name="member_name"
             v-model="member_name"
-            placeholder="name"
+            placeholder="The name of this member"
             required
             />
 

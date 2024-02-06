@@ -11,7 +11,7 @@
               <li>/</li>
                 
               <li v-if="member">
-                <NuxtLink :to="'/members/' + member.name">
+                <NuxtLink :to="'/members/' + member.name" class="link-active">
                     {{ member.name }}                  
                 </NuxtLink>                
               </li>

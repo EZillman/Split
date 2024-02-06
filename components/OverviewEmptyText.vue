@@ -55,13 +55,13 @@ ul {
 }
 
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 640px) {
     .text-container  {
         margin: 1rem 5rem;
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
     .text-container  {
         margin: 1rem 20rem;
     }

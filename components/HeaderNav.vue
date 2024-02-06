@@ -36,7 +36,7 @@ h1 {
     display: none;
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 640px) {
     header {
         background-color: #324B4B;
         display: block;
@@ -66,7 +66,7 @@ h1 {
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
     header {
         height: 0;
 

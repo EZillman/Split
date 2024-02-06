@@ -9,12 +9,10 @@
             id="chore_name"
             name="chore_name"
             v-model="chore_name"
-            placeholder="name"
+            placeholder="The name of this chore"
             required
             />
 
-            <div>
-                <div>
                     <label for="time_estimated">
                         Time estimated in minutes
                     </label>
@@ -24,12 +22,10 @@
                     class="small-input"
                     name="time_estimated"
                     v-model="time_estimated"
-                    placeholder="30"
+                    placeholder="Time estimated to complete this chore"
                     required
                     />                    
-                </div>
-
-                <div>
+                
                     <label for="monthly_frequency">
                         Monthly frequency
                     </label>
@@ -39,13 +35,9 @@
                     class="small-input"
                     name="monthly_frequency"
                     v-model="monthly_frequency"
-                    placeholder="4"
+                    placeholder="The monthly frequency for this chore"
                     required
                     />                      
-                </div>
-              
-            </div>
-
 
             <p v-if="successMsg">{{ successMsg }}</p>
             <p v-if="errorMsg">{{ errorMsg }}</p>
@@ -108,7 +100,7 @@ async function submitForm() {
 
 <style lang="scss" scoped>
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 640px) {
     form {
         div {
             display: flex;
@@ -123,9 +115,10 @@ async function submitForm() {
         }
     }
 
-    .small-input {
+    /**.small-input {
         width: 95%;
     }
+     */
 }
 
 </style>

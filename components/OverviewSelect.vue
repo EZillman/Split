@@ -23,7 +23,7 @@ function emitOption() {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 640px) {
   div {
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@ function emitOption() {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
   div {
     margin: 0 20%;    
 

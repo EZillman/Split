@@ -82,14 +82,14 @@ const renderPieChart = () => {
 </script>
   
 <style lang="scss" scoped>
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 640px) {
   canvas {
     height: 18.75rem;
     width: 18.75rem;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
   .canvas-container {
     width: 50%;
 

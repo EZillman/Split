@@ -40,7 +40,7 @@ img {
     transition: all ease-in-out 0.3s;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
     .desktop-add-container {
         margin: 10rem 2rem 0.5rem 1rem;
     }

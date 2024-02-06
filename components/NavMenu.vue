@@ -126,7 +126,7 @@ div button {
     display: none;
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 640px) {
     nav {
         z-index: 2;
         height: 100%;
@@ -147,11 +147,14 @@ div button {
                 a {
                     color: #54E3EC;
                     font-size: 3rem;
+                    
+                    &.active-link {
+                        text-decoration: underline #54E3EC;
+                    }
+
                 }
 
-                &.active-link {
-                    text-decoration: underline #54E3EC;
-                }
+
             }
 
         }
@@ -189,7 +192,7 @@ div button {
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
 
     nav {
         height: 8.2rem;

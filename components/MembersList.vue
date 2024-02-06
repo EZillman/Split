@@ -98,7 +98,7 @@ button {
     margin-top: 0.5rem;
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 640px) {
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -109,7 +109,7 @@ button {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
   ul {
     display: block;
     margin-right: 2rem;

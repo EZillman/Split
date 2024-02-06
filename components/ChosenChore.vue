@@ -13,7 +13,7 @@
               <li>/</li>
               
               <li>
-                <NuxtLink :to="'/chores/' + chore.name">
+                <NuxtLink :to="'/chores/' + chore.name" class="link-active">
                     {{ chore.name }}                   
                 </NuxtLink>
               </li> 
@@ -89,7 +89,7 @@ async function fetchChore() {
     background-color: #aececd86;
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 640px) {
   .chore-container {
     margin: 2rem 10rem;
     padding: 1rem;
@@ -98,7 +98,7 @@ async function fetchChore() {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
   .chore-container {
     margin: 10rem 1rem 0.5rem 2rem;
     height: 22rem;

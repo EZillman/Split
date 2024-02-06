@@ -130,7 +130,7 @@ button {
     margin-top: 0.5rem;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
     h3 {
         margin: 0.2rem 0;
     }

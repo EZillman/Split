@@ -69,7 +69,7 @@ p {
     margin: 1% 3%;
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 640px) {
     header {
         div{
             height: 95px;
@@ -91,7 +91,7 @@ p {
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
     header {
         div{
             height: 120px;
