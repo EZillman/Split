@@ -28,6 +28,8 @@
 </template>
 
 <script setup>
+import '../assets/main.css';
+
 const isEditUserOpen = ref(false);
 
 const toggleEditUser = () => {

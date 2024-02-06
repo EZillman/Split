@@ -22,6 +22,8 @@
 </template>
 
 <script setup>
+import '../assets/main.css';
+
 const isEditChoreOpen = ref(false);
 const chore = ref(null);
 
