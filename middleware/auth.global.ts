@@ -6,5 +6,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
         return;
     }
 
+    // if already authenticated go to home
+
 })   
 

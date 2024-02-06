@@ -3,28 +3,28 @@
         <ul>
             <li>
                 <NuxtLink to="/home" exact-active-class="active-link">
-                    <img src="/home.png" height="49" width="49"> 
+                    <img src="/home.png" height="49" width="49" alt="Home icon"> 
                     Home
                 </NuxtLink>
             </li>
             
             <li>
                 <NuxtLink to="/members" exact-active-class="active-link">
-                    <img src="/friends.png" height="49" width="49">
+                    <img src="/friends.png" height="49" width="49" alt="Members icon">
                     Members
                 </NuxtLink>
             </li>
             
             <li>
                 <NuxtLink to="/chores" exact-active-class="active-link">
-                <img src="/vacuum-cleaner.png" height="49" width="49">
+                <img src="/vacuum-cleaner.png" height="49" width="49" alt="Chores icon">
                 Chores              
                 </NuxtLink>                
             </li>
             
             <li>
                 <NuxtLink to="/settings" exact-active-class="active-link">
-                    <img src="/setting.png" height="49" width="49">
+                    <img src="/setting.png" height="49" width="49" alt="Settings icon">
                     Settings
                 </NuxtLink>
             </li>
@@ -38,8 +38,8 @@
         :class="{ 'close-btn': isMenuOpen }"
         @click="toggleMenu"
         >
-            <img v-if="isMenuOpen" class="close-btn-img" src="/interface.png" height="130" width="130">
-            <img v-else src="/list.png" class="open-btn-img" height="111" width="95">
+            <img v-if="isMenuOpen" class="close-btn-img" src="/interface.png" height="130" width="130" alt="Close menu button">
+            <img v-else src="/list.png" class="open-btn-img" height="111" width="95" alt="Open menu button">
 
         </button>        
     </div>

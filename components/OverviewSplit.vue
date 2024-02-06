@@ -12,8 +12,11 @@
 
         <ul>
           <li v-for="member in members" :key="member.id" ref="chartRefs">
-            <h3>{{ member.name }}</h3>
+            <h3>              
+                {{ member.name }}              
+            </h3>
             <p>{{ renderDistribution(member.id) }}</p>
+
           </li>
         </ul>      
       </div>      
