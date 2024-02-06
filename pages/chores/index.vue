@@ -24,6 +24,8 @@
 </template>
 
 <script setup>
+import '../assets/main.css';
+
 const isAddChoresOpen = ref(false);
 
 const toggleAddChores = () => {

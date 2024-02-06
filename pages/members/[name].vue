@@ -35,6 +35,8 @@
 </template>
 
 <script setup>
+import '../assets/main.css';
+
 const isAssignChoresOpen = ref(false);
 const isEditMemberOpen = ref(false);
 

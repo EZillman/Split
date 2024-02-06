@@ -29,6 +29,8 @@
 </template>
 
 <script setup>
+import '../assets/main.css';
+
 let showLoginForm = ref(true);
 let formAlternatives = ref('Create account');
 
