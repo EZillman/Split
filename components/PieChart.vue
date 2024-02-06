@@ -1,6 +1,7 @@
 <template>
     <div class="canvas-container">
-      <div>
+      <p>Try clicking on the slices!</p>
+      <div> 
         <canvas ref="canvas" height="200" width="200"></canvas>
       </div>
     </div>
@@ -92,6 +93,11 @@ const renderPieChart = () => {
 @media screen and (min-width: 1100px) {
   .canvas-container {
     width: 50%;
+
+    p {
+      width: 15rem;
+      margin-left: 9rem;
+    }
 
     div {
       width: 27rem;

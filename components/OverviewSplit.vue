@@ -9,7 +9,7 @@
 
       <div class="distribution-container">
         <PieChart v-if="canRenderChart && members.length > 0" :percentage="calculatePercentageForChart" :householdMembers="members"></PieChart>
-
+        
         <ul>
           <li v-for="member in members" :key="member.id" ref="chartRefs">
             <h3>              
@@ -227,7 +227,7 @@ li {
 
 @media screen and (min-width: 1100px) {
   ul {
-    margin: 0 2%;
+    margin: 2%;
     width: 50%;
   }
 
