@@ -6,7 +6,7 @@ https://thesplit.netlify.app/
 
 ## Project idea
 
-The idea is an app that gives the users an overview of the distribution of chores in their household
+The idea is an app where you can get an overview of the distribution of the chores in your household. You create an account for your household, then you can add members, chores and assign the chores to the members. Finally you will be able to see the distribution of the chores in your household. There will be a piechart with slices that represent the members, there will also be a list of the members that shows their percentage or time in hours (depending on your preferance).
 
 ## Tech stack
 
